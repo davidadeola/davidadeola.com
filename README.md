@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# David Adeola Blog - Next.js Version
 
-## Getting Started
+A modern, responsive blog built with Next.js, TypeScript, and styled-components. This is a Next.js port of the original Gatsby blog with the same design and functionality.
 
-First, run the development server:
+## 🚀 Features
 
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Styled Components** for CSS-in-JS
+- **Dark/Light Theme** with system preference detection
+- **Responsive Design** with mobile-first approach
+- **Markdown Support** with gray-matter and remark
+- **Infinite Scroll** for blog posts
+- **Category Filtering** 
+- **SEO Optimized** with meta tags
+- **Performance Optimized** with Next.js optimizations
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Styled Components
+- **Content**: Markdown with gray-matter
+- **Date Handling**: date-fns
+- **Utilities**: lodash
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd davidadeola-next
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+davidadeola-next/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   ├── components/          # Reusable UI components
+│   ├── layouts/             # Layout components
+│   ├── posts/               # Markdown blog posts
+│   ├── styles/              # Styled components and themes
+│   ├── types/               # TypeScript type definitions
+│   ├── utils/               # Utility functions
+│   └── hooks/               # Custom React hooks
+├── public/                  # Static assets
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Theming
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The blog supports both light and dark themes with automatic system preference detection. Theme switching is handled through CSS custom properties and localStorage persistence.
 
-## Deploy on Vercel
+## 📝 Adding Blog Posts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a new markdown file in `src/posts/blog/`
+2. Add frontmatter with the following fields:
+   ```yaml
+   ---
+   title: "Your Post Title"
+   category: "Category Name"
+   date: "YYYY-MM-DD HH:MM:SS"
+   desc: "Post description"
+   thumbnail: "./path/to/thumbnail.jpg"
+   alt: "Thumbnail alt text"
+   ---
+   ```
+3. Write your content in markdown format
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Deployment
+
+The blog can be deployed to any platform that supports Next.js:
+
+- **Vercel** (recommended)
+- **Netlify**
+- **AWS Amplify**
+- **Self-hosted**
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
