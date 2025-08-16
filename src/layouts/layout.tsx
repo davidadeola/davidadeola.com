@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
       </div>
       <footer
         role="contentinfo"
-        className="flex text-center justify-center items-center h-footer-height bg-color-gray-1"
+        className="flex text-center justify-center items-center h-footer-height"
       >
         <span
           aria-label="Copyright"

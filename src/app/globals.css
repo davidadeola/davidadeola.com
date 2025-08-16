@@ -78,18 +78,18 @@
     --color-thumb-hover: #64646470;
   }
 
-  [data-theme='dark'] {
+  [data-theme="dark"] {
     /* Dark theme - matching Gatsby */
     --color-text: #e6e6e6;
     --color-text-2: #d1d1d1;
     --color-text-3: #8c8c8c;
     --color-white: #e6e6e6;
-    --color-nav-bar: #010b15b3;
-    --color-nav-border: #8abff333;
+    --color-nav-bar: #1c1c1c;
+    --color-nav-border: #646464;
     --color-category-button: #293949;
-    --color-background: #010b15;
-    --color-post-background: #010b15;
-    --color-card: #021427;
+    --color-background: #1c1c1c;
+    --color-post-background: #1c1c1c;
+    --color-card: #2c2c2c;
     --color-code: #071e36;
     --color-code-block: #021427;
     --color-gray-1: #010b15;
@@ -103,8 +103,8 @@
     --color-blue-icon: #3b82f6;
     --color-icon-hover: #e6e6e6;
     --color-icon: #d1d1d1;
-    --color-scrollbar: #010b15;
-    --color-scrollbar-thumb: #264a6c80;
+    --color-scrollbar: #1c1c1c;
+    --color-scrollbar-thumb: #8f8f8f;
     --color-thumb-hover: #264a6c;
   }
 
@@ -120,7 +120,10 @@
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+      Ubuntu, Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: var(--color-post-background);
     -webkit-font-smoothing: antialiased;
     color: var(--color-text);
@@ -137,8 +140,8 @@
   /* Scrollbar styles - matching Gatsby */
   @media screen and (hover: hover) {
     *::-webkit-scrollbar {
-      width: .6em;
-      height: .6em;
+      width: 0.6em;
+      height: 0.6em;
       background-color: var(--color-scrollbar);
     }
 

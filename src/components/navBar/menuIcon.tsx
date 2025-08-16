@@ -12,7 +12,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({ toggle, handleClick }) => {
     <button
       onClick={handleClick}
       aria-label="Toggle menu"
-      className="hidden md:block bg-transparent border-none cursor-pointer p-2 rounded hover:bg-color-category-button"
+      className="block md:hidden bg-transparent border-none cursor-pointer p-2 rounded hover:bg-color-category-button"
     >
       <div className="w-5 h-4 relative flex flex-col justify-between">
         <span

@@ -57,7 +57,7 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   return (
     <ul
       role="list"
-      className="grid grid-cols-2 gap-grid-gap-xl list-none md:gap-grid-gap-lg"
+      className="grid grid-col-1 md:grid-cols-2  gap-grid-gap-xl list-none md:gap-grid-gap-lg"
     >
       {currentList.map((data) => {
         const { id, slug, title, desc, date, category, thumbnail, alt } = data;

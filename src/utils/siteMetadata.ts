@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const siteMetadata = {
   title: "David Adeola",
   description: `David's Blog`,
@@ -14,8 +16,16 @@ export const siteMetadata = {
       name: "Home",
     },
     {
+      link: "/about",
+      name: "About",
+    },
+    {
+      link: "/github",
+      name: "GitHub",
+    },
+    {
       link: "https://github.com/davidadeola",
       name: "Github",
     },
   ],
-} as const
+} as const;
