@@ -11,9 +11,10 @@ import LinkList from "Components/navBar/linkList";
 interface NavBarProps {
   title?: string | null;
   themeToggler: UseThemeReturnType["themeToggler"];
+  theme: UseThemeReturnType["theme"];
 }
 
-const NavBar: React.FC<NavBarProps> = ({ title, themeToggler }) => {
+const NavBar: React.FC<NavBarProps> = ({ title, theme, themeToggler }) => {
   const { menuLinks } = siteMetadata;
   const navRef = useRef<HTMLElement>(null);
   const curtainRef = useRef<HTMLDivElement>(null);
@@ -71,7 +72,7 @@ const NavBar: React.FC<NavBarProps> = ({ title, themeToggler }) => {
             >
               <LinkList links={menuLinks} setToggle={setToggle} />
               <li className="flex justify-center items-center py-2 md:ml-4 md:py-0">
-                <ThemeToggleButton themeToggler={themeToggler} />
+                <ThemeToggleButton theme={theme} themeToggler={themeToggler} />
               </li>
             </ul>
           </div>
