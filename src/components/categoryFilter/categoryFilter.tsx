@@ -33,7 +33,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categoryList }) => {
       </em>
       <Link
         href="/"
-        className="cursor-pointer block bg-color-category-button px-sizing-sm py-sizing-sm rounded-border-radius-base text-sm font-font-weight-semi-bold hover:text-color-white hover:bg-color-blue focus:text-color-white focus:bg-color-blue focus:outline-none"
+        className="cursor-pointer block bg-color-category-button px-sizing-sm py-sizing-sm rounded-border-radius-base text-sm font-font-weight-semi-bold hover:text-color-white hover:bg-[#3b82f6] focus:text-color-white focus:bg-color-blue focus:outline-none"
       >
         {ALL_CATEGORY_NAME}
       </Link>

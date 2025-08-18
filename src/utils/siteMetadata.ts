@@ -19,10 +19,7 @@ export const siteMetadata = {
       link: "/about",
       name: "About",
     },
-    {
-      link: "/github",
-      name: "GitHub",
-    },
+
     {
       link: "https://github.com/davidadeola",
       name: "Github",

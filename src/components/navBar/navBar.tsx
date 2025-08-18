@@ -40,27 +40,37 @@ const NavBar: React.FC<NavBarProps> = ({ title, themeToggler }) => {
             {title}
           </Link>
         </h1>
-        <div className="flex md:relative md:w-full md:h-nav-height">
+
+        <div className="flex md:relative  md:w-auto md:h-auto">
+          {/* Mobile curtain overlay */}
           <div
             ref={curtainRef}
-            className={`hidden md:block md:fixed md:top-[calc(var(--nav-height)-1px)] md:left-0 md:w-full md:h-[calc(100%-var(--nav-height)+1px)] md:bg-color-post-background md:transition-opacity md:duration-300 ${
+            className={`fixed top-[calc(var(--nav-height)-1px)] left-0 w-full h-[calc(100%-var(--nav-height)+1px)] bg-color-post-background transition-opacity duration-300 md:hidden ${
               toggle
-                ? "md:opacity-100 md:pointer-events-auto"
-                : "md:opacity-0 md:pointer-events-none"
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none"
             }`}
           />
-          <div className="md:w-full md:z-200">
+
+          <div className="md:w-auto md:z-200">
+            {/* Hamburger menu - only visible on mobile */}
             <MenuIcon toggle={toggle} handleClick={handleClick} />
+
+            {/* Navigation list */}
             <ul
               ref={listRef}
-              className={`flex md:pointer-events-none md:flex-col md:px-sizing-lg md:absolute md:top-full md:left-0 md:w-full md:bg-color-post-background md:border-b md:border-color-nav-border md:transition-all md:duration-300 md:ease-in-out ${
-                toggle
-                  ? "md:translate-y-0 md:opacity-100 md:pointer-events-auto"
-                  : "md:-translate-y-full md:opacity-0"
-              }`}
+              className={`
+                flex-col px-sizing-lg absolute top-full gap-4 left-0 w-full bg-color-post-background border-b border-color-nav-border transition-all duration-300 ease-in-out pointer-events-none
+                ${
+                  toggle
+                    ? "flex translate-y-0 opacity-100 pointer-events-auto"
+                    : "hidden -translate-y-full opacity-0"
+                }
+                md:flex md:flex-row md:static md:w-auto md:bg-transparent md:border-none md:translate-y-0 md:opacity-100 md:pointer-events-auto md:px-0
+              `}
             >
               <LinkList links={menuLinks} setToggle={setToggle} />
-              <li className="flex justify-center items-center ml-8 first:ml-0 last:ml-0 md:block md:ml-0 md:text-text-md md:py-2">
+              <li className="flex justify-center items-center py-2 md:ml-4 md:py-0">
                 <ThemeToggleButton themeToggler={themeToggler} />
               </li>
             </ul>
@@ -70,4 +80,5 @@ const NavBar: React.FC<NavBarProps> = ({ title, themeToggler }) => {
     </nav>
   );
 };
+
 export default NavBar;
