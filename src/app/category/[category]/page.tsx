@@ -2,6 +2,7 @@ import React from "react";
 import { getSortedPostsData, getCategories } from "Utils/posts";
 import { siteMetadata } from "Utils/siteMetadata";
 import CategoryPageClient from "./CategoryPageClient";
+import kebabCase from "lodash/kebabCase";
 import type { Metadata } from "next";
 
 interface CategoryPageProps {
@@ -10,15 +11,25 @@ interface CategoryPageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
+// Use the same createCategorySlug function as CategoryFilter
+const createCategorySlug = (categoryName: string): string => {
+  if (categoryName === "Web3") {
+    return "Web3";
+  }
+  return kebabCase(categoryName);
+};
+
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
   try {
     const { category } = await params;
     const allCategories = getCategories();
 
-    // Convert kebab-case back to original category name
+    // Create category mapping using the same slug function as CategoryFilter
     const categoryMap: Record<string, string> = allCategories.reduce(
       (acc, cat) => {
-        acc[kebabCase(cat.name)] = cat.name;
+        acc[createCategorySlug(cat.name)] = cat.name;
         return acc;
       },
       {} as Record<string, string>
@@ -54,10 +65,10 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
   const allPosts = getSortedPostsData();
   const allCategories = getCategories();
 
-  // Convert kebab-case back to original category name
+  // Create category mapping using the same slug function as CategoryFilter
   const categoryMap: Record<string, string> = allCategories.reduce(
     (acc, cat) => {
-      acc[kebabCase(cat.name)] = cat.name;
+      acc[createCategorySlug(cat.name)] = cat.name;
       return acc;
     },
     {} as Record<string, string>
@@ -79,13 +90,5 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
     />
   );
 };
-
-// Helper function to convert kebab-case to original case
-function kebabCase(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
 
 export default CategoryPage;
