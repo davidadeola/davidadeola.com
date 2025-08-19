@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeContext.Provider value={theme}>
       <div className="w-full h-full min-h-[calc(100vh-var(--footer-height))] bg-color-post-background">
-        <NavBar title={title} themeToggler={themeToggler} />
+        <NavBar title={title} themeToggler={themeToggler} theme={theme} />
         {children}
       </div>
       <footer
