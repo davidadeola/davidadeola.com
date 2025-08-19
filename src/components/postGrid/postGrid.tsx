@@ -55,19 +55,12 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
   }, [currentList, hasMore, posts, maxPostNum]);
 
   return (
-    <ul
-      role="list"
-      className="grid grid-col-1 md:grid-cols-2  gap-grid-gap-xl list-none md:gap-grid-gap-lg"
-    >
+    <ul role="list" className="grid grid-cols-1 md:grid-cols-2 gap-12">
       {currentList.map((data) => {
         const { id, slug, title, desc, date, category, thumbnail, alt } = data;
         const ariaLabel = `${title} - ${category} - Posted on ${date}`;
         return (
-          <li
-            key={id}
-            role="listitem"
-            className="box-border col-span-1 mb-0 md:col-span-2"
-          >
+          <li key={id} role="listitem" className="box-border col-span-1 mb-0 ">
             <Link
               href={slug}
               aria-label={ariaLabel}
