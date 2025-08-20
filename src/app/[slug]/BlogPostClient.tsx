@@ -3,6 +3,7 @@
 import React from "react";
 import type Post from "Types/Post";
 import Comment from "Components/comment";
+import Mdx from "@/lib/mdx";
 
 interface BlogPostClientProps {
   post: Post;
@@ -10,38 +11,39 @@ interface BlogPostClientProps {
 
 const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
   return (
-    <main className="min-w-min-width min-h-[calc(100vh-var(--nav-height)-var(--footer-height))] bg-color-background">
-      <div className="mt-sizing-xl md:mt-sizing-lg">
-        <div className="w-post-width mx-auto pb-sizing-lg md:w-[87.5%]">
-          <article className="animate-fade-in">
-            <header className="mb-sizing-xl">
-              <div className="mb-sizing-md">
-                <span className="inline-flex items-center px-3 py-1 text-sm font-font-weight-semi-bold text-color-blue bg-color-blue/10 rounded-full border border-color-blue/20">
+    <main className="min-w-80 min-h-screen bg-color-background">
+      <div className="pt-16 md:pt-12">
+        <div className="max-w-3xl mx-auto pb-12 px-4 md:w-[87.5%]">
+          <article className="animate-fade-in-up">
+            <header className="mb-16">
+              <div className="mb-6">
+                <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full border border-blue-200">
                   {post.category}
                 </span>
                 <time
                   dateTime={post.date}
-                  className="block mt-sizing-sm text-color-text-3 text-text-sm font-medium"
+                  className="block mt-2 text-gray-500 text-sm font-medium"
                 >
                   {post.date}
                 </time>
               </div>
-              <h1 className="font-font-weight-extra-bold leading-tight text-text-3xl text-color-text lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-sizing-md">
+              <h1 className="font-extrabold leading-tight text-3xl text-gray-900 dark:text-gray-600 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
                 {post.title}
               </h1>
-              <p className="leading-relaxed text-text-lg text-color-text-2 md:leading-relaxed md:text-lg max-w-3xl">
+              <p className="leading-relaxed text-lg text-gray-600 md:leading-relaxed md:text-lg max-w-3xl">
                 {post.desc}
               </p>
             </header>
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-color-gray-3 to-transparent my-sizing-xl" />
-            <div className="prose prose-lg max-w-none">
-              <div
-                className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: post.content || "" }}
-              />
-            </div>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8" />
+
+            <Mdx
+              content={post.content || ""}
+              className="prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-800"
+            />
           </article>
-          <div className="mt-sizing-xl pt-sizing-lg border-t border-color-gray-3">
+
+          <div className="mt-16 pt-12 border-t border-gray-300">
             <Comment />
           </div>
         </div>
