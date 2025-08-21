@@ -104,7 +104,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           h3: ({ children }) => (
-            <h3 className="text-2xl font-bold leading-tight md:text-xl sm:text-lg mt-10 mb-4 text-gray-700 dark:text-gray-300">
+            <h3 className="text-2xl font-extrbold leading-tight md:text-xl sm:text-lg mt-10 mb-4 text-color-text-2">
               {children}
             </h3>
           ),
@@ -122,7 +122,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           ul: ({ children }) => (
-            <ul className="list-disc list-outside my-6 space-y-2 ml-6 text-gray-600 dark:text-gray-400">
+            <ul className="list-disc list-outside my-4 space-y-2 ml-6 text-color-text-3 mb-4">
               {children}
             </ul>
           ),
@@ -134,7 +134,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           li: ({ children }) => (
-            <li className="leading-relaxed mb-2 text-gray-300 dark:text-gray-400">
+            <li className="leading-relaxed text-color-text-3 mb-4">
               {children}
             </li>
           ),
@@ -158,7 +158,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             if (inline) {
               return (
                 <code
-                  className="bg-gray-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 px-2 py-1 rounded text-sm font-mono border"
+                  className="bg-color-gray-2 text-color-text-2 px-3 py-1 rounded-lg text-sm font-mono border-2"
                   {...props}
                 >
                   {children}
@@ -187,7 +187,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             const language = match ? match[1] : "text";
 
             return (
-              <div className="my-8 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+              <div className="my-8 rounded-lg overflow-hidden border border-color-divider ">
                 <div className="bg-gray-800 text-gray-300 px-4 py-2 text-sm font-medium flex items-center">
                   <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
                   <span className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
@@ -195,7 +195,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
                   {language.charAt(0).toUpperCase() + language.slice(1)}
                 </div>
                 <pre
-                  className="bg-gray-900 text-gray-100 p-6 overflow-x-auto font-mono text-sm leading-relaxed"
+                  className="bg-color-gray-1 text-color-text p-6 overflow-x-auto font-mono text-sm rounded-lg leading-relaxed"
                   {...props}
                 >
                   {children}
@@ -244,16 +244,14 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
 
           // Handle strong/bold text
           strong: ({ children }) => (
-            <strong className="font-semibold text-gray-900 dark:text-gray-100">
+            <strong className="font-semibold text-color-text-2">
               {children}
             </strong>
           ),
 
           // Handle emphasis/italic text
           em: ({ children }) => (
-            <em className="italic text-gray-700 dark:text-gray-300">
-              {children}
-            </em>
+            <em className="italic text-color-text-3">{children}</em>
           ),
         }}
       >

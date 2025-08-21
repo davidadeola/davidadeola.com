@@ -13,16 +13,7 @@ export const siteMetadata = {
   menuLinks: [
     {
       link: "/",
-      name: "Home",
-    },
-    {
-      link: "/about",
-      name: "About",
-    },
-
-    {
-      link: "https://github.com/davidadeola",
-      name: "Github",
+      name: "Blog",
     },
   ],
 } as const;

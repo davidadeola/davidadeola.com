@@ -13,11 +13,11 @@ Blockchain technology's advent has catalyzed the emergence of decentralized appl
 
 
 ### Table of Contents
-- Getting to Know dynamic.xyz
-- The SDK Suite
-- Building a login/logout application using dynamic.xyz
-- Connecting to the dynamic.xyz dashboard
-- Wrapping Up
+  - Getting to Know dynamic.xyz
+  - The SDK Suite
+  - Building a login/logout application using dynamic.xyz
+  - Connecting to the dynamic.xyz dashboard
+  - Wrapping Up
 
 
 
@@ -67,7 +67,7 @@ npm start
 npm install @dynamic-labs/sdk-react
 ```
 
----
+
 
 **Third step**
 **_Initialize the SDK in your Project_**
@@ -98,7 +98,6 @@ root.render(
 export default App;
 ```
 
----
 
 - `useDynamicContext` A Dynamic React Context set via `DynamicContextProvider`.
 - `setShowAuthFlow` Triggers the user's signature request.
@@ -122,7 +121,6 @@ export default App;
 
 ```
 
----
 
 **Flexibility of Logging in**
 dynamic.xyz provides a variety of login functionality which is easy to setup in your Developer Dashboard.
@@ -143,7 +141,6 @@ export default function Login({ setShowAuthFlow }) {
 }
 ```
 
----
 
 **Fourth step**
 **Logout Functionality**
@@ -181,7 +178,6 @@ export default function Dashboard({ user, handleLogOut }) {
 
 **Great job!!!** You have successfully set up your first application with dynamic.xyz
 
----
 
 At this point, it should look like this when you click on the connect Wallet button:
 
@@ -213,7 +209,6 @@ After adding the extra features from your dashboard it should look like this:
 
 ![Wallet connect](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pry279ndpwo5t6uuy81p.png)
 
----
 
 ## Wrapping up
 

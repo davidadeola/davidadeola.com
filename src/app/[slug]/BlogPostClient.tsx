@@ -27,7 +27,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
                   {post.date}
                 </time>
               </div>
-              <h1 className="font-extrabold leading-tight text-3xl ext-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
+              <h1 className="font-extrabold leading-tight text-3xl text-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
                 {post.title}
               </h1>
               <p className="leading-relaxed text-lg text-color-text-2 md:leading-relaxed md:text-lg max-w-3xl">
