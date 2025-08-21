@@ -7,45 +7,45 @@ thumbnail: "/images/dynamicxyz/thumbnail.jpeg"
 alt: "Dynamicxyz Demo DApp"
 ---
 
-##Introduction
+## Introduction
 
 Blockchain technology's advent has catalyzed the emergence of decentralized applications (DApps), offering heightened levels of security, privacy, and control to users. This article explores the mechanics of On-Chain (Metamask, Rainbow, Coinbasewallet) and Off-Chain (Facebook, Google) platforms for authentication via [dynamic.xyz](https://dynamic.xyz), a robust platform for streamlined user onboarding.
 
----
 
-###Table of Contents
-
+### Table of Contents
 - Getting to Know dynamic.xyz
 - The SDK Suite
 - Building a login/logout application using dynamic.xyz
 - Connecting to the dynamic.xyz dashboard
 - Wrapping Up
 
----
 
-##Getting to know dynamic.xyz
+
+## Getting to know dynamic.xyz
+
 Dynamic.xyz offers robust authentication and authorization solutions. They provide an exceptionally user-friendly onboarding process and highly flexible, fully functional developer tools. Additionally, their interactive dashboard is fully customizable to align with the specific UI/UX experience users aim to achieve.
 
 One of their most groundbreaking features is the seamless integration of multiple wallets. Surprisingly, implementing this feature is extremely straightforward, requiring no manual coding. I'll delve into this in a bit.
 
----
 
-##The SDK Suite
 
-- Dynamic is compatible with React (v17 and upward) and NextJS (v12 and upward).
-- For its SDK, Dynamic utilizes either **Ethers** or **Web3.js** libraries to interact with Ethereum blockchain. - Ethers.js has surpassed Web3.js as the primary library for establishing connections between decentralized applications (DApps) and smart contracts on EVM blockchains.
+## The SDK Suite
 
-`npm install @dynamic-labs/sdk-react `
+Dynamic is compatible with React (v17 and upward) and NextJS (v12 and upward).
+For its SDK, Dynamic utilizes either **Ethers** or **Web3.js** libraries to interact with Ethereum blockchain. - Ethers.js has surpassed Web3.js as the primary library for establishing connections between decentralized applications (DApps) and smart contracts on EVM blockchains.
 
-- All-Chains SDK (Complete) vs Modular SDK:
-  The All-Chains SDK, `@dynamic-labs/sdk-react`, provides a comprehensive package with all features and wallet support. Nevertheless, if your aim is to minimize the bundle size by removing any redundant libraries from our SDK, you now have the option to select and use a specific set of new packages that cater to your preferences.
+```npm install @dynamic-labs/sdk-react ```
 
----
+All-Chains SDK (Complete) vs Modular SDK:
+The All-Chains SDK, `@dynamic-labs/sdk-react`, provides a comprehensive package with all features and wallet support. Nevertheless, if your aim is to minimize the bundle size by removing any redundant libraries from our SDK, you now have the option to select and use a specific set of new packages that cater to your preferences.
 
-##Building a login/logout application using dynamic.xyz
+
+
+## Building a login/logout application using dynamic.xyz
+
 Here, I will guide you through the process of building a sample project using the dynamic.xyz SDK. Additionally, I will share my thought process and insights regarding its implementation.
 
-##Pre-requisites:
+## Pre-requisites:
 **_Ensure you have the following before proceeding:_**
 
 Environmental_Id: Acquire this post sign-up on the [developer page](https://app.dynamic.xyz/). navigate to the [Developer Dashboard](https://app.dynamic.xyz/dashboard/developer) to obtain your `environmental_id`.
@@ -177,7 +177,8 @@ export default function Dashboard({ user, handleLogOut }) {
 
 ```
 
-##Fifth step
+## Fifth step
+
 **Great job!!!** You have successfully set up your first application with dynamic.xyz
 
 ---
@@ -186,7 +187,8 @@ At this point, it should look like this when you click on the connect Wallet but
 
 ![Connect Wallet](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x78dknpj1vjrix89djtc.png)
 
-##Connecting to the Dynamic Dashboard
+## Connecting to the Dynamic Dashboard
+
 **Logging into the Dashboard**
 The Dynamic Developer Dashboard is developed using this same SDK, this offers over 320 wallets, or email for Login or Sign up.
 
@@ -213,7 +215,7 @@ After adding the extra features from your dashboard it should look like this:
 
 ---
 
-##Wrapping up
+## Wrapping up
 
 In conclusion, the rapid evolution of blockchain technology has opened up exciting possibilities for transformative applications like those facilitated by Dynamic. By seamlessly integrating blockchain capabilities through their powerful SDK, developers can unlock a new realm of potential for their applications. The versatility offered by Dynamic, supporting popular frameworks like React and NextJS, as well as the option to choose between Ethers and Viem libraries, equips developers with the tools they need to tailor solutions to their precise needs.
 

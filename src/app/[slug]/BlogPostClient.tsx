@@ -17,20 +17,20 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
           <article className="animate-fade-in-up">
             <header className="mb-16">
               <div className="mb-6">
-                <span className="inline-flex items-center px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full border border-blue-200">
+                <span className="inline-flex items-center px-3 py-2 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full border border-blue-200">
                   {post.category}
                 </span>
                 <time
                   dateTime={post.date}
-                  className="block mt-2 text-gray-500 text-sm font-medium"
+                  className="block mt-4 text-color-text-3 text-sm font-medium"
                 >
                   {post.date}
                 </time>
               </div>
-              <h1 className="font-extrabold leading-tight text-3xl text-gray-900 dark:text-gray-600 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
+              <h1 className="font-extrabold leading-tight text-3xl ext-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
                 {post.title}
               </h1>
-              <p className="leading-relaxed text-lg text-gray-600 md:leading-relaxed md:text-lg max-w-3xl">
+              <p className="leading-relaxed text-lg text-color-text-2 md:leading-relaxed md:text-lg max-w-3xl">
                 {post.desc}
               </p>
             </header>
