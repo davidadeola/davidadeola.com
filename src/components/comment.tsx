@@ -1,73 +1,89 @@
 "use client";
+import React, { useRef, useContext, useEffect, useState } from "react";
 
-import React, { useRef, useContext, useEffect } from "react";
 import ThemeContext from "Stores/themeContext";
 import { siteMetadata } from "Utils/siteMetadata";
 import { DARK } from "Constants/theme";
 
 const src = "https://utteranc.es";
-const utterancesSelector = "iframe.utterances-frame";
 const LIGHT_THEME = "github-light";
 const DARK_THEME = "dark-blue";
-
-type ThemeMode = typeof LIGHT_THEME | typeof DARK_THEME;
 
 const Comment = () => {
   const { utterances } = siteMetadata;
   const { repo } = utterances ?? { repo: undefined };
   const theme = useContext(ThemeContext);
   const containerRef = useRef<HTMLDivElement>(null);
-  const isUtterancesCreated = useRef(false);
+  const [mounted, setMounted] = useState(false);
 
+  // 1. Handle component mounting
   useEffect(() => {
-    if (!repo || !containerRef.current) return;
+    setMounted(true);
+  }, []);
 
-    let themeMode: ThemeMode;
+  // 2. Handle initial script creation
+  useEffect(() => {
+    if (!mounted || !repo || !containerRef.current) return;
 
-    if (!isUtterancesCreated.current) {
-      themeMode =
-        document.documentElement.dataset.theme === DARK
-          ? DARK_THEME
-          : LIGHT_THEME;
-    } else {
-      themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
+    // Check if the script is already there to prevent re-creation
+    if (containerRef.current.querySelector('script[src*="utteranc.es"]')) {
+      return;
     }
 
-    const createUtterancesEl = () => {
-      const comment = document.createElement("script");
-      const attributes = {
-        src: `${src}/client.js`,
-        repo,
-        "issue-term": "title",
-        label: "comment",
-        theme: themeMode,
-        crossOrigin: "anonymous",
-        async: "true",
-      };
-      Object.entries(attributes).forEach(([key, value]) => {
-        comment.setAttribute(key, value);
-      });
-      containerRef.current?.appendChild(comment);
-      isUtterancesCreated.current = true;
+    const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
+
+    const comment = document.createElement("script");
+    const attributes = {
+      src: `${src}/client.js`,
+      repo,
+      "issue-term": "pathname",
+      label: "comment",
+      theme: themeMode,
+      crossOrigin: "anonymous",
+      async: "true",
     };
 
-    const utterancesEl = containerRef.current?.querySelector(
-      utterancesSelector
+    Object.entries(attributes).forEach(([key, value]) => {
+      comment.setAttribute(key, value);
+    });
+
+    comment.onerror = () => {
+      console.warn("Failed to load Utterances script");
+    };
+
+    containerRef.current.appendChild(comment);
+  }, [mounted, repo]); // Depend on mounted and repo only
+
+  // 3. Handle theme changes
+  useEffect(() => {
+    if (!mounted || !repo || !containerRef.current) return;
+
+    const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
+    const utterancesEl = containerRef.current.querySelector(
+      "iframe.utterances-frame"
     ) as HTMLIFrameElement;
 
-    const postThemeMessage = () => {
-      if (!utterancesEl) return;
+    if (utterancesEl?.contentWindow) {
       const message = {
         type: "set-theme",
         theme: themeMode,
       };
-      utterancesEl?.contentWindow?.postMessage(message, src);
-    };
 
-    isUtterancesCreated.current ? postThemeMessage() : createUtterancesEl();
-  }, [repo, theme]);
+      try {
+        utterancesEl.contentWindow.postMessage(message, src);
+      } catch (error) {
+        console.debug("Theme message failed:", error);
+      }
+    }
+  }, [mounted, repo, theme]); // Depend on theme to run this effect
 
-  return <div ref={containerRef} />;
+  if (!mounted || !repo) {
+    return null;
+  }
+
+  return (
+    <div ref={containerRef} className="utterances-container min-h-[200px]" />
+  );
 };
 
 export default Comment;

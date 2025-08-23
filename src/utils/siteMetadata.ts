@@ -7,7 +7,7 @@ export const siteMetadata = {
   siteUrl: "https://davidadeola.com",
   lang: "en",
   utterances: {
-    repo: "davidadeola/davidadeola-blog-comment",
+    repo: "davidadeola/davidadeola.com",
   },
   postTitle: "All",
   menuLinks: [

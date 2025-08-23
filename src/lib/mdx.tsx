@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -20,9 +21,21 @@ interface MdxProps {
 }
 
 const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
-    Prism.highlightAll();
-  });
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      // Only run Prism highlighting on client side
+      const timer = setTimeout(() => {
+        Prism.highlightAll();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isClient, content]);
 
   const preprocessMarkdown = (text: string): string => {
     let processed = text;
@@ -82,6 +95,22 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
   };
 
   const processedContent = preprocessMarkdown(content);
+
+  // Don't render anything until client-side hydration is complete
+  if (!isClient) {
+    return (
+      <div
+        className={`${className} max-w-4xl mx-auto px-8 py-12 bg-gray-900 text-gray-100 leading-loose`}
+      >
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-700 rounded w-3/4 mb-4"></div>
+          <div className="h-4 bg-gray-700 rounded w-full mb-2"></div>
+          <div className="h-4 bg-gray-700 rounded w-5/6 mb-2"></div>
+          <div className="h-4 bg-gray-700 rounded w-4/5 mb-8"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -150,8 +179,8 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             </a>
           ),
 
-          code: ({ children, className, ...props }) => {
-            const match = /language-(\w+)/.exec(className || "");
+          code: ({ children, className: codeClassName, ...props }) => {
+            const match = /language-(\w+)/.exec(codeClassName || "");
             const language = match ? match[1] : "";
             const inline = !match;
 
@@ -166,11 +195,11 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
               );
             }
 
+            // Sort className to ensure consistent hydration
+            const sortedClassName = `language-${language} font-mono text-sm`;
+
             return (
-              <code
-                className={`language-${language} text-sm font-mono`}
-                {...props}
-              >
+              <code className={sortedClassName} {...props}>
                 {children}
               </code>
             );
@@ -242,14 +271,12 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             <hr className="border-gray-300 dark:border-gray-600 my-12" />
           ),
 
-          // Handle strong/bold text
           strong: ({ children }) => (
             <strong className="font-semibold text-color-text-2">
               {children}
             </strong>
           ),
 
-          // Handle emphasis/italic text
           em: ({ children }) => (
             <em className="italic text-color-text-3">{children}</em>
           ),

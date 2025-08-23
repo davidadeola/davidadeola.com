@@ -9,7 +9,7 @@ alt: "🚀 Boosting Productivity"
 
 ## 🚀 Boosting Productivity: How to Effectively Manage a Technical Team! 🖥️💪
 
-Are you a manager looking to bring out the best in your technical team? Look no further! Check out this informative article by davidadeola.com on how to manage a technical team effectively and skyrocket their productivity! 🚀📈
+Are you a manager looking to bring out the best in your technical team? Look no further! Check out this informative article by davidadeola.com on how to manage a technical teasm effectively and skyrocket their productivity! 🚀📈
 
 In this article, you'll discover top-notch strategies and practical tips for managing your technical team like a pro. Here's a quick rundown of the key points to keep in mind:
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import type Post from "Types/Post";
 import Comment from "Components/comment";
 import Mdx from "@/lib/mdx";
@@ -10,6 +10,12 @@ interface BlogPostClientProps {
 }
 
 const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <main className="min-w-80 min-h-screen bg-color-background">
       <div className="pt-16 md:pt-12">
@@ -43,9 +49,15 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
             />
           </article>
 
-          <div className="mt-16 pt-12 border-t border-gray-300">
-            <Comment />
-          </div>
+          {/* Only render comments after component is mounted */}
+          {mounted && (
+            <div className="mt-16 pt-12 border-t border-gray-300">
+              <h2 className="text-2xl font-semibold text-color-text mb-6">
+                Comments
+              </h2>
+              <Comment />
+            </div>
+          )}
         </div>
       </div>
     </main>
