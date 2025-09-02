@@ -1,19 +1,8 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
-
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.css";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-typescript";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-tsx";
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-json";
-import "prismjs/components/prism-css";
 
 interface MdxProps {
   content: string;
@@ -22,20 +11,53 @@ interface MdxProps {
 
 const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
   const [isClient, setIsClient] = useState(false);
+  const [prismLoaded, setPrismLoaded] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   useEffect(() => {
-    if (isClient) {
-      // Only run Prism highlighting on client side
+    if (isClient && typeof window !== "undefined") {
+      const loadPrism = async () => {
+        try {
+          const Prism = (await import("prismjs")).default;
+
+          await import("prismjs/themes/prism-tomorrow.css");
+
+          await Promise.all([
+            import("prismjs/components/prism-javascript"),
+            import("prismjs/components/prism-typescript"),
+            import("prismjs/components/prism-jsx"),
+            import("prismjs/components/prism-tsx"),
+            import("prismjs/components/prism-bash"),
+            import("prismjs/components/prism-json"),
+            import("prismjs/components/prism-css"),
+          ]);
+
+          setPrismLoaded(true);
+
+          setTimeout(() => {
+            Prism.highlightAll();
+          }, 50);
+        } catch (error) {
+          console.error("Failed to load Prism:", error);
+          setPrismLoaded(true);
+        }
+      };
+
+      loadPrism();
+    }
+  }, [isClient]);
+
+  useEffect(() => {
+    if (prismLoaded && typeof window !== "undefined" && window.Prism) {
       const timer = setTimeout(() => {
-        Prism.highlightAll();
+        window.Prism.highlightAll();
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [isClient, content]);
+  }, [prismLoaded, content]);
 
   const preprocessMarkdown = (text: string): string => {
     let processed = text;
@@ -96,17 +118,18 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
 
   const processedContent = preprocessMarkdown(content);
 
-  // Don't render anything until client-side hydration is complete
   if (!isClient) {
     return (
       <div
-        className={`${className} max-w-4xl mx-auto px-8 py-12 bg-gray-900 text-gray-100 leading-loose`}
+        className={`${className} max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12`}
       >
-        <div className="animate-pulse">
-          <div className="h-8 bg-gray-700 rounded w-3/4 mb-4"></div>
-          <div className="h-4 bg-gray-700 rounded w-full mb-2"></div>
-          <div className="h-4 bg-gray-700 rounded w-5/6 mb-2"></div>
-          <div className="h-4 bg-gray-700 rounded w-4/5 mb-8"></div>
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+          <div className="space-y-2">
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5"></div>
+          </div>
         </div>
       </div>
     );
@@ -114,44 +137,44 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
 
   return (
     <div
-      className={`${className} max-w-4xl mx-auto px-8 py-12 bg-gray-900 text-gray-100 leading-loose`}
+      className={`${className} max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12`}
     >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-4xl font-extrabold leading-tight md:text-3xl sm:text-2xl mt-12 mb-4 text-gray-900 dark:text-gray-100">
+            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mt-12 mb-4 text-gray-900 dark:text-gray-100">
               {children}
             </h1>
           ),
 
           h2: ({ children }) => (
-            <h2 className="text-2xl font-extrabold leading-tight md:text-3xl sm:text-xl mt-12 mb-4 text-gray-800 dark:text-gray-200">
+            <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight mt-12 mb-4 text-gray-800 dark:text-gray-200">
               {children}
             </h2>
           ),
 
           h3: ({ children }) => (
-            <h3 className="text-2xl font-extrbold leading-tight md:text-xl sm:text-lg mt-10 mb-4 text-color-text-2">
+            <h3 className="text-xl sm:text-2xl font-extrabold leading-tight mt-10 mb-4 text-gray-700 dark:text-gray-300">
               {children}
             </h3>
           ),
 
           h4: ({ children }) => (
-            <h4 className="text-xl font-semibold leading-tight md:text-lg sm:text-base mt-6 mb-3 text-gray-700 dark:text-gray-300">
+            <h4 className="text-lg sm:text-xl font-semibold leading-tight mt-6 mb-3 text-gray-700 dark:text-gray-300">
               {children}
             </h4>
           ),
 
           p: ({ children }) => (
-            <p className="leading-relaxed text-base mb-8 text-color-text-2 break-words font-light">
+            <p className="leading-relaxed text-base mb-6 text-gray-700 dark:text-gray-300 break-words font-light">
               {children}
             </p>
           ),
 
           ul: ({ children }) => (
-            <ul className="list-disc list-outside my-4 space-y-2 ml-6 text-color-text-3 mb-4">
+            <ul className="list-disc list-outside my-4 space-y-2 ml-6 text-gray-600 dark:text-gray-400 mb-4">
               {children}
             </ul>
           ),
@@ -163,7 +186,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           li: ({ children }) => (
-            <li className="leading-relaxed text-color-text-3 mb-4">
+            <li className="leading-relaxed text-gray-600 dark:text-gray-400 mb-2">
               {children}
             </li>
           ),
@@ -187,7 +210,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             if (inline) {
               return (
                 <code
-                  className="bg-color-gray-2 text-color-text-2 px-3 py-1 rounded-lg text-sm font-mono border-2"
+                  className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm font-mono border"
                   {...props}
                 >
                   {children}
@@ -195,7 +218,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
               );
             }
 
-            // Sort className to ensure consistent hydration
+            // Use standard classes instead of custom CSS properties
             const sortedClassName = `language-${language} font-mono text-sm`;
 
             return (
@@ -216,7 +239,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             const language = match ? match[1] : "text";
 
             return (
-              <div className="my-8 rounded-lg overflow-hidden border border-color-divider ">
+              <div className="my-8 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
                 <div className="bg-gray-800 text-gray-300 px-4 py-2 text-sm font-medium flex items-center">
                   <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
                   <span className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
@@ -224,7 +247,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
                   {language.charAt(0).toUpperCase() + language.slice(1)}
                 </div>
                 <pre
-                  className="bg-color-gray-1 text-color-text p-6 overflow-x-auto font-mono text-sm rounded-lg leading-relaxed"
+                  className="bg-gray-900 text-gray-100 p-4 sm:p-6 overflow-x-auto font-mono text-sm leading-relaxed"
                   {...props}
                 >
                   {children}
@@ -263,7 +286,8 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             <img
               src={src}
               alt={alt}
-              className="w-full h-auto rounded-lg shadow-lg object-cover my-8"
+              className="w-full h-auto rounded-lg shadow-lg object-cover my-8 max-w-full"
+              loading="lazy"
             />
           ),
 
@@ -272,13 +296,15 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           strong: ({ children }) => (
-            <strong className="font-semibold text-color-text-2">
+            <strong className="font-semibold text-gray-800 dark:text-gray-200">
               {children}
             </strong>
           ),
 
           em: ({ children }) => (
-            <em className="italic text-color-text-3">{children}</em>
+            <em className="italic text-gray-600 dark:text-gray-400">
+              {children}
+            </em>
           ),
         }}
       >

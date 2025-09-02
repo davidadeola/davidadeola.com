@@ -18,7 +18,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: BlogPostProps): Promise<Metadata> {
   try {
     const { slug } = await params;
     const post = await getPostData(slug);
@@ -31,13 +33,17 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
         description: post.desc,
         type: "article",
         url: `${siteMetadata.siteUrl}${post.slug}`,
-        images: post.thumbnail ? [`${siteMetadata.siteUrl}${post.thumbnail}`] : [],
+        images: post.thumbnail
+          ? [`${siteMetadata.siteUrl}${post.thumbnail}`]
+          : [],
       },
       twitter: {
         card: "summary",
         title: post.title,
         description: post.desc,
-        images: post.thumbnail ? [`${siteMetadata.siteUrl}${post.thumbnail}`] : [],
+        images: post.thumbnail
+          ? [`${siteMetadata.siteUrl}${post.thumbnail}`]
+          : [],
       },
     };
   } catch (error) {
@@ -51,7 +57,15 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
 const BlogPost = async ({ params }: BlogPostProps) => {
   try {
     const { slug } = await params;
+
+    if (!slug) {
+      notFound();
+    }
     const post = await getPostData(slug);
+
+    if (!post) {
+      notFound();
+    }
 
     return <BlogPostClient post={post} />;
   } catch (error) {
