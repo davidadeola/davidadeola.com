@@ -52,7 +52,7 @@ const Comment = () => {
     };
 
     containerRef.current.appendChild(comment);
-  }, [mounted, repo]); // Depend on mounted and repo only
+  }, [mounted, repo, theme]); // Depend on mounted, repo, and theme
 
   // 3. Handle theme changes
   useEffect(() => {

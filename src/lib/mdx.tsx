@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import Image from "next/image";
 
 interface MdxProps {
   content: string;
@@ -283,9 +284,11 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           img: ({ src, alt }) => (
-            <img
-              src={src}
-              alt={alt}
+            <Image
+              src={src || ""}
+              alt={alt || ""}
+              width={800}
+              height={400}
               className="w-full h-auto rounded-lg shadow-lg object-cover my-8 max-w-full"
               loading="lazy"
             />

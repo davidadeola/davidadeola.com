@@ -45,6 +45,11 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categoryList }) => {
   );
 
   const isCurrentPath = (path: string) => {
+    // Handle null pathname
+    if (!pathname) {
+      return currentPath === path;
+    }
+
     // Normalize paths for comparison
     const normalizedPathname = pathname.endsWith("/")
       ? pathname
