@@ -17,7 +17,7 @@ const ThemeToggleButton: React.FC<ThemeToggleButtonProps> = ({
     <button
       onClick={themeToggler}
       aria-label="Toggle theme"
-      className="flex justify-center items-center cursor-pointer transition-colors duration-200 hover:text-color-blue focus:text-color-blue focus:outline-none"
+      className="flex justify-center items-center cursor-pointer transition-colors duration-200 hover:text-color-blue focus:text-color-blue focus:outline-hidden"
     >
       <div className="relative p-[6px] border border-[#E1E1E1]/50">
         {theme === "dark" ? (

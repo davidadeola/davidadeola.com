@@ -41,7 +41,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
               </p>
             </header>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent my-8" />
+            <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300 to-transparent my-8" />
 
             <Mdx
               content={post.content || ""}

@@ -69,14 +69,14 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categoryList }) => {
       aria-label="Category Filter"
       className="flex items-center bg-color-card mb-12 px-sizing-md py-3 rounded-border-radius-base"
     >
-      <div className="flex-shrink-0 text-text-base font-font-weight-semi-bold mr-sizing-lg hidden sm:block">
+      <div className="shrink-0 text-text-base font-font-weight-semi-bold mr-sizing-lg hidden sm:block">
         Category
       </div>
 
       {/* All Category Link with Active State */}
       <Link
         href="/"
-        className={`cursor-pointer block py-2 px-5 rounded-border-radius-base text-sm font-font-weight-semi-bold focus:outline-none transition-colors duration-200 ${
+        className={`cursor-pointer block py-2 px-5 rounded-border-radius-base text-sm font-font-weight-semi-bold focus:outline-hidden transition-colors duration-200 ${
           isCurrentPath("/")
             ? "text-color-white bg-color-blue hover:bg-blue-700"
             : "bg-color-category-button hover:text-color-white hover:bg-[#3b82f6] focus:text-color-white focus:bg-color-blue"
@@ -101,7 +101,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categoryList }) => {
             <li key={name} className="ml-1.5 first:ml-0">
               <Link
                 href={categoryPath}
-                className={`cursor-pointer block py-2 px-5 rounded-border-radius-base text-sm font-font-weight-semi-bold focus:outline-none transition-colors duration-200 whitespace-nowrap ${
+                className={`cursor-pointer block py-2 px-5 rounded-border-radius-base text-sm font-font-weight-semi-bold focus:outline-hidden transition-colors duration-200 whitespace-nowrap ${
                   isActive
                     ? "text-color-white bg-color-blue hover:bg-blue-700"
                     : "bg-color-category-button hover:text-color-white hover:bg-color-blue focus:text-color-white focus:bg-color-blue"

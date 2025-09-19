@@ -10,7 +10,7 @@ const Footer = () => {
       className="flex text-center px-[120px] text-sm text-white/70 font-normal justify-between items-center h-[95px] bg-[#292929]"
     >
       <p aria-label="Copyright" className="text-sm font-bold">
-        <span className="!text-white font-bold">{author}</span> © {copyrightYr}
+        <span className="text-white! font-bold">{author}</span> © {copyrightYr}
       </p>
 
       <div className="flex gap-2 items-center">

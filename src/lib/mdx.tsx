@@ -125,11 +125,11 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
         className={`${className} max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12`}
       >
         <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+          <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded-sm w-3/4"></div>
           <div className="space-y-2">
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
-            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/5"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-sm w-full"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-sm w-5/6"></div>
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-sm w-4/5"></div>
           </div>
         </div>
       </div>
@@ -211,7 +211,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             if (inline) {
               return (
                 <code
-                  className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded text-sm font-mono border"
+                  className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-sm text-sm font-mono border"
                   {...props}
                 >
                   {children}

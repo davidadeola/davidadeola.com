@@ -12,9 +12,9 @@ const NotFound = () => {
             <h1 className="text-8xl font-font-weight-extra-bold text-color-text mb-4 md:text-6xl">
               404
             </h1>
-            <div className="absolute inset-0 bg-gradient-to-r from-color-blue/20 to-color-accent/20 blur-3xl -z-10" />
+            <div className="absolute inset-0 bg-linear-to-r from-color-blue/20 to-color-accent/20 blur-3xl -z-10" />
           </div>
-          <div className="w-24 h-1 bg-gradient-to-r from-color-blue to-color-accent mx-auto rounded-full mb-6" />
+          <div className="w-24 h-1 bg-linear-to-r from-color-blue to-color-accent mx-auto rounded-full mb-6" />
         </div>
         <h2 className="text-2xl font-font-weight-bold text-color-text mb-4 md:text-xl">
           Page Not Found
@@ -25,7 +25,7 @@ const NotFound = () => {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center px-6 py-3 bg-color-blue text-white font-font-weight-semi-bold rounded-lg hover:bg-color-blue-icon focus:outline-none focus:ring-2 focus:ring-color-blue focus:ring-offset-2 transition-all duration-200 shadow-shadow-md hover:shadow-shadow-lg transform hover:-translate-y-0.5"
+          className="inline-flex items-center px-6 py-3 bg-color-blue text-white font-font-weight-semi-bold rounded-lg hover:bg-color-blue-icon focus:outline-hidden focus:ring-2 focus:ring-color-blue focus:ring-offset-2 transition-all duration-200 shadow-shadow-md hover:shadow-shadow-lg transform hover:-translate-y-0.5"
         >
           <svg
             className="w-4 h-4 mr-2"
