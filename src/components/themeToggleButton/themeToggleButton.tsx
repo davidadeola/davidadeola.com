@@ -1,33 +1,35 @@
 "use client";
 
-import React from "react";
-import type { UseThemeReturnType } from "Hooks/useTheme";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
-interface ThemeToggleButtonProps {
-  theme: UseThemeReturnType["theme"];
-  themeToggler: UseThemeReturnType["themeToggler"];
-}
+export default function ThemeToggleButton() {
+  const { systemTheme, theme, setTheme } = useTheme();
+  const [isClient, setIsClient] = useState(false);
+  const activeTheme = theme === "system" ? systemTheme : theme;
 
-const ThemeToggleButton: React.FC<ThemeToggleButtonProps> = ({
-  themeToggler,
-  theme,
-}) => {
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) return null;
+
   return (
     <button
-      onClick={themeToggler}
-      aria-label="Toggle theme"
-      className="flex justify-center items-center cursor-pointer transition-colors duration-200 hover:text-color-blue focus:text-color-blue focus:outline-hidden"
+      aria-label="Toggle Theme"
+      className={`cursor-pointer border dark:border-[#353535] h-[32px] w-8 flex items-center justify-center dark:text-white`}
+      onClick={toggleTheme}
     >
-      <div className="relative p-[6px] border border-[#E1E1E1]/50">
-        {theme === "dark" ? (
-          <Sun size={20} strokeWidth={1.5} />
-        ) : (
-          <Moon size={20} strokeWidth={1.5} />
-        )}
-      </div>
+      {activeTheme === "light" ? (
+        <Sun size={20} strokeWidth={1.5} />
+      ) : (
+        <Moon size={20} strokeWidth={1.5} />
+      )}
     </button>
   );
-};
-
-export default ThemeToggleButton;
+}

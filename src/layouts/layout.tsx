@@ -5,7 +5,6 @@ import type { ReactNode } from "react";
 import ThemeContext from "Stores/themeContext";
 import useTheme from "Hooks/useTheme";
 import { siteMetadata } from "Utils/siteMetadata";
-import NavBar from "Components/navBar";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 

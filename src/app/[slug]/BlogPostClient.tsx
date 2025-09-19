@@ -18,7 +18,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
   return (
     <main className="min-w-80 min-h-screen bg-color-background">
-      <div className="pt-16 md:pt-12">
+      <div className="">
         <div className="max-w-3xl mx-auto pb-12 px-4 md:w-[87.5%]">
           <article className="animate-fade-in-up">
             <header className="mb-16">

@@ -1,9 +1,8 @@
-import useTheme from "@/hooks/useTheme";
 import { Button } from "./button";
 import Logo from "./logo";
-import ThemeToggleButton from "./themeToggleButton";
 import Link from "next/link";
 import { Search } from "lucide-react";
+import ThemeToggleButton from "./themeToggleButton";
 
 const NAV_LINKS = [
   {
@@ -25,8 +24,6 @@ const NAV_LINKS = [
 ];
 
 const Header = () => {
-  const { theme, themeToggler } = useTheme();
-
   return (
     <header className="flex h-[88px] items-center justify-between px-[120px]">
       <div className="flex items-center gap-20">
@@ -36,7 +33,7 @@ const Header = () => {
           {NAV_LINKS.map(({ href, title }) => (
             <Link
               key={title}
-              className="px-2 py-[6px] text-base font-bold bg-color-button-background text-color-button-text"
+              className="px-2 h-8 flex items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
               href={href}
             >
               {title}
@@ -50,11 +47,11 @@ const Header = () => {
           <Search size={20} strokeWidth={1.5} />
         </Button>
 
-        <Button className="text-base font-bold text-white bg-[#974BFA]">
+        <Button className="text-base font-bold text-white border border-[#974BFA] bg-[#974BFA]">
           Subscribe
         </Button>
 
-        <ThemeToggleButton theme={theme} themeToggler={themeToggler} />
+        <ThemeToggleButton />
       </div>
     </header>
   );
