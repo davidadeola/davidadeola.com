@@ -231,7 +231,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
 
           pre: ({ children, ...props }) => {
             const codeElement = React.Children.toArray(children).find(
-              (child): child is React.ReactElement =>
+              (child): child is React.ReactElement<any> =>
                 React.isValidElement(child) && child.type === "code"
             );
 

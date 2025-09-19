@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .bg-noise {
+    background-image: url("/images/bg-noise.png");
+    background-size: 200px 200px;
+    background-position: 0 0;
+  }
+}
+
 @layer base {
   :root {
     /* Layout */
@@ -59,6 +67,8 @@
     --color-category-button: #f2f2f2;
     --color-background: #f2f2f2;
     --color-post-background: #ffffff;
+    --color-button-background: #161616;
+    --color-button-text: #ffffff;
     --color-card: #ffffff;
     --color-code: #f2f2f2;
     --color-code-block: #fafafa;
@@ -88,6 +98,8 @@
     --color-nav-border: #646464;
     --color-category-button: #484848;
     --color-background: #1c1c1c;
+    --color-button-background: #ffffff;
+    --color-button-text: #292929;
     --color-post-background: #1c1c1c;
     --color-card: #2c2c2c;
     --color-code: #071e36;
@@ -126,12 +138,12 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: var(--color-post-background);
     -webkit-font-smoothing: antialiased;
-    color: var(--color-text);
+    /* color: var(--color-text); */
   }
 
-  * {
+  /* * {
     color: var(--color-text);
-  }
+  } */
 
   a {
     text-decoration: none;

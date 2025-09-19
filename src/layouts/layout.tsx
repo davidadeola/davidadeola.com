@@ -6,6 +6,8 @@ import ThemeContext from "Stores/themeContext";
 import useTheme from "Hooks/useTheme";
 import { siteMetadata } from "Utils/siteMetadata";
 import NavBar from "Components/navBar";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 type LayoutProps = {
   children: ReactNode;
@@ -35,25 +37,13 @@ const Layout = ({ children }: LayoutProps) => {
     );
   }
 
-  const copyrightStr = `Copyright © ${new Date().getFullYear()} ${author}.`;
-
   return (
     <ThemeContext.Provider value={theme}>
-      <div className="w-full h-full min-h-screen bg-color-post-background">
-        <NavBar title={title} themeToggler={themeToggler} theme={theme} />
-        <div style={{ minHeight: "calc(100vh - 60px)" }}>{children}</div>
+      <div className="bg-noise w-full h-full min-h-screen bg-color-post-background">
+        <Header />
+        <main style={{ minHeight: "calc(100vh - 60px)" }}>{children}</main>
+        <Footer />
       </div>
-      <footer
-        role="contentinfo"
-        className="flex text-center justify-center items-center h-16 bg-color-background"
-      >
-        <span
-          aria-label="Copyright"
-          className="text-sm font-bold text-gray-600 dark:text-gray-400"
-        >
-          {copyrightStr}
-        </span>
-      </footer>
     </ThemeContext.Provider>
   );
 };

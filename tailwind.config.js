@@ -18,6 +18,8 @@ module.exports = {
         "color-nav-border": "var(--color-nav-border)",
         "color-category-button": "var(--color-category-button)",
         "color-background": "var(--color-background)",
+        "color-button-background": "var(--color-button-background)",
+        "color-button-text": "var(--color-button-text)",
         "color-post-background": "var(--color-post-background)",
         "color-card": "var(--color-card)",
         "color-code": "var(--color-code)",
