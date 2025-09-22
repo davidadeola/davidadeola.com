@@ -104,3 +104,17 @@ export function getCategories() {
     count: allPosts.filter((post) => post.category === category).length,
   }));
 }
+
+export function searchPosts(query: string): Post[] {
+  if (!query) return getSortedPostsData();
+
+  const allPosts = getSortedPostsData();
+  const lowerQuery = query.toLowerCase();
+
+  return allPosts.filter(
+    (post) =>
+      post.title.toLowerCase().includes(lowerQuery) ||
+      post.desc.toLowerCase().includes(lowerQuery) ||
+      post.category.toLowerCase().includes(lowerQuery)
+  );
+}

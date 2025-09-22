@@ -1,5 +1,6 @@
 "use client";
 
+import { SearchProvider } from "@/hooks/useSearchQuery";
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -14,7 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeProvider attribute="class" enableSystem={true}>
-      {children}
+      <SearchProvider>{children}</SearchProvider>
     </ThemeProvider>
   );
 }
