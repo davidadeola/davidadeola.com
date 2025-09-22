@@ -80,7 +80,11 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
     ? allPosts.filter((post) => post.category === originalCategoryName)
     : [];
 
-  return <CategoryPageClient filteredPosts={filteredPosts} />;
+  return (
+    <>
+      <CategoryPageClient filteredPosts={filteredPosts} />
+    </>
+  );
 };
 
 export default CategoryPage;

@@ -7,7 +7,11 @@ const Home = () => {
 
   console.log(posts, "posts");
 
-  return <HomeClient posts={posts} />;
+  return (
+    <>
+      <HomeClient posts={posts} />
+    </>
+  );
 };
 
 export default Home;

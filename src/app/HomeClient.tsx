@@ -3,7 +3,6 @@
 import React from "react";
 import PostGrid from "Components/postGrid";
 import type Post from "Types/Post";
-import SearchFilterPanel from "@/components/SearchFilterPanel";
 
 interface HomeClientProps {
   posts: Post[];
@@ -12,8 +11,6 @@ interface HomeClientProps {
 const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
   return (
     <main className="">
-      <SearchFilterPanel />
-
       <PostGrid posts={posts} />
     </main>
   );

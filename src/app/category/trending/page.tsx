@@ -5,7 +5,11 @@ import TrendingClient from "./TrendingPageClient";
 const Trending = () => {
   const posts = getTrendingPostsData();
 
-  return <TrendingClient posts={posts} />;
+  return (
+    <>
+      <TrendingClient posts={posts} />
+    </>
+  );
 };
 
 export default Trending;
