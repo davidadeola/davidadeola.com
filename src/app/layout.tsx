@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Providers } from "@/lib/ThemeProvider";
+import SearchFilterPanel from "@/components/SearchFilterPanel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <Providers>
-          <div className="bg-noise relative mx-auto min-h-screen w-full gap-16 bg-white text-[#171717] transition dark:bg-[#171717] dark:text-white">
+          <div className="bg-noise relative mx-auto min-h-screen flex flex-col w-full bg-white text-[#171717] transition dark:bg-[#171717] dark:text-white">
             <Header />
 
-            <main className="mx-auto w-full px-[120px]">{children}</main>
+            <main className="mx-auto pb-[80px] flex-1 w-full px-[120px]">
+              {children}
+            </main>
 
             <Footer />
           </div>

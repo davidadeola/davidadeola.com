@@ -5,11 +5,11 @@ import PostGrid from "Components/postGrid";
 import type Post from "Types/Post";
 import SearchFilterPanel from "@/components/SearchFilterPanel";
 
-interface HomeClientProps {
+interface TrendingClientProps {
   posts: Post[];
 }
 
-const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
+const TrendingClient: React.FC<TrendingClientProps> = ({ posts }) => {
   return (
     <main className="">
       <SearchFilterPanel />
@@ -19,4 +19,4 @@ const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
   );
 };
 
-export default HomeClient;
+export default TrendingClient;

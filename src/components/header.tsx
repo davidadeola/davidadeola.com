@@ -43,9 +43,9 @@ const Header = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <Button className="">
+        <button className="border-none">
           <Search size={20} strokeWidth={1.5} />
-        </Button>
+        </button>
 
         <Button className="text-base font-bold text-white border border-[#974BFA] bg-[#974BFA]">
           Subscribe

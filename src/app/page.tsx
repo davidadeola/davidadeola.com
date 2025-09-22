@@ -1,16 +1,13 @@
 import React from "react";
-import { getSortedPostsData, getCategories } from "Utils/posts";
-import { siteMetadata } from "Utils/siteMetadata";
+import { getSortedPostsData } from "Utils/posts";
 import HomeClient from "./HomeClient";
 
 const Home = () => {
   const posts = getSortedPostsData();
-  const categories = getCategories();
-  const postTitle = siteMetadata.postTitle;
 
-  return (
-    <HomeClient posts={posts} categories={categories} postTitle={postTitle} />
-  );
+  console.log(posts, "posts");
+
+  return <HomeClient posts={posts} />;
 };
 
 export default Home;
