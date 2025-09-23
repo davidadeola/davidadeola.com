@@ -65,7 +65,7 @@ const renderPost = (
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="text-[12px] uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
+            <div className="text-[12px] md:text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
               {category}
             </div>
 
@@ -127,7 +127,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <div className="text-[12px] md:text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
             {category}
           </div>
 
@@ -188,7 +188,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <div className="text-[12px] md:text-base  uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
             {category}
           </div>
 

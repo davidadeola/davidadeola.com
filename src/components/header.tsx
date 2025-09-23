@@ -53,7 +53,7 @@ const Header = () => {
             <Search size={20} strokeWidth={1.5} />
           </button>
 
-          <Button className="text-base hidden md:block font-bold text-white border border-[#974BFA] bg-[#974BFA]">
+          <Button className="text-base hidden md:flex font-bold text-white border border-[#974BFA] bg-[#974BFA]">
             Subscribe
           </Button>
 

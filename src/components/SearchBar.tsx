@@ -11,13 +11,12 @@ const SearchBar = () => {
   console.log(pathname, "path");
 
   // Allowed routes
-  const allowedPaths = ["/", "/category", "/trending"];
-  const shouldRender = allowedPaths.includes(pathname);
+  const shouldRender = pathname === "/" || pathname.startsWith("/category");
 
   if (!shouldRender) return null;
 
   return (
-    <div className="mt-8 border dark:border-[#353535] h-[48px] px-3 w-full max-w-[430px] flex items-center gap-3">
+    <div className="mt-8 md:mt-0 border dark:border-[#353535] h-[48px] px-3 w-full max-w-[430px] flex items-center gap-3">
       <Search strokeWidth={2} size={20} className="h-[80%]" />
 
       <input

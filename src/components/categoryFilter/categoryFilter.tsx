@@ -23,8 +23,7 @@ const CategoryFilter: React.FC = () => {
   const pathname = usePathname();
 
   // Allowed routes
-  const allowedPaths = ["/", "/category", "/trending"];
-  const shouldRender = allowedPaths.includes(pathname);
+  const shouldRender = pathname === "/" || pathname.startsWith("/category");
 
   const { categories, loading } = useCategories();
   // console.log(loading); // TODO: do something with this or about this...
@@ -41,7 +40,7 @@ const CategoryFilter: React.FC = () => {
   return (
     <nav
       aria-label="Category Filter"
-      className="flex mb-8 w-full h-[32px] md:h-[48px]"
+      className="flex mb-8 md:mb-0 w-full h-[32px] md:h-[48px]"
     >
       <ul className="flex items-center gap-3 list-none overflow-x-auto invisible-scrollbar">
         {/* All Articles and Trending Articles*/}
