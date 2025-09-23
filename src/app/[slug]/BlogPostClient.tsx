@@ -4,6 +4,13 @@ import React, { useState, useEffect } from "react";
 import type Post from "Types/Post";
 import Comment from "Components/comment";
 import Mdx from "@/lib/mdx";
+import { format } from "date-fns";
+import Image from "next/image";
+import { Heart, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { heart_filled, user_icon } from "@/assets/icons";
+import Recommendations from "@/components/recommendations";
+import Newsletter from "@/components/newletters";
 
 interface BlogPostClientProps {
   post: Post;
@@ -11,54 +18,131 @@ interface BlogPostClientProps {
 
 const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
   const [mounted, setMounted] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const handleClickLikebtn = (): void => {
+    setIsLiked(!isLiked);
+  };
+
   return (
-    <main className="min-w-80 min-h-screen bg-color-background">
-      <div className="">
-        <div className="max-w-3xl mx-auto pb-12 px-4 md:w-[87.5%]">
-          <article className="animate-fade-in-up">
-            <header className="mb-16">
-              <div className="mb-6">
-                <span className="inline-flex items-center px-3 py-2 text-sm font-semibold text-blue-600 bg-blue-50 rounded-full border border-blue-200">
-                  {post.category}
-                </span>
-                <time
-                  dateTime={post.date}
-                  className="block mt-4 text-color-text-3 text-sm font-medium"
-                >
-                  {post.date}
-                </time>
+    <main className="min-h-screen">
+      <div className="mx-auto flex flex-col gap-30 pb-12">
+        <article className="animate-fade-in-up">
+          <header className="flex flex-col gap-6">
+            <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+              {post.category}
+            </div>
+
+            <h1 className="font-extrabold leading-tight text-3xl text-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
+              {post.title}
+            </h1>
+
+            <div className="flex gap-3 items-center">
+              <div className="rounded-full border-2 border-white h-[56px] w-[56px]">
+                {/* <Image src={""} alt="" fill className="object-cover" /> */}
               </div>
-              <h1 className="font-extrabold leading-tight text-3xl text-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
-                {post.title}
-              </h1>
-              <p className="leading-relaxed text-lg text-color-text-2 md:leading-relaxed md:text-lg max-w-3xl">
-                {post.desc}
-              </p>
-            </header>
 
-            <div className="w-full h-px bg-linear-to-r from-transparent via-gray-300 to-transparent my-8" />
+              <div className="flex flex-col gap-2 justify-between">
+                <p className="text-base font-semibold text-[#2A2A2A]">
+                  David Adeola
+                </p>
 
+                <div className="flex items-center gap-2">
+                  <time
+                    dateTime={post.date}
+                    className="text-sm text-[#979797] font-normal"
+                  >
+                    {format(new Date(post.date), "MMM dd, yyyy")}
+                  </time>
+                  <span className="bg-[#979797] rounded-full w-1 h-1"></span>{" "}
+                  <p className="text-sm text-[#979797] font-normal">
+                    4 min read
+                  </p>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div>
+            {post.thumbnail && (
+              <div className="h-[675px] mt-10 relative w-full">
+                <Image
+                  src={post.thumbnail}
+                  alt="thumbnail"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            <div className="flex justify-end my-4">
+              <button
+                onClick={handleClickLikebtn}
+                className="text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-3.5"
+              >
+                {isLiked ? (
+                  <Image
+                    src={heart_filled}
+                    width={20}
+                    height={20}
+                    alt="liked"
+                  />
+                ) : (
+                  <Heart size={20} strokeWidth={1.5} />
+                )}
+                {100} likes
+              </button>
+
+              <Link
+                href={"#comment"}
+                className="text-base flex items-center gap-2 border-l-0 cursor-pointer hover:bg-[#974BFA] hover:text-white  transition-colors ease-in-out uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5"
+              >
+                <MessageCircle size={20} strokeWidth={1.5} />
+                Comment
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative">
             <Mdx
               content={post.content || ""}
               className="prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-800"
             />
-          </article>
 
-          {/* Only render comments after component is mounted */}
-          {mounted && (
-            <div className="mt-16 pt-12 border-t border-gray-300">
-              <h2 className="text-2xl font-semibold text-color-text mb-6">
-                Comments
-              </h2>
-              <Comment />
+            <div className="absolute top-[280px] right-0 z-40">
+              <Link
+                href="#subscribe"
+                className="inline-flex items-center gap-2 uppercase bg-[#974BFA] text-white px-4 py-3.5 shadow-2xl"
+              >
+                <Image
+                  src={user_icon}
+                  width={24}
+                  height={24}
+                  alt="subscribe link"
+                />
+                Subscribe
+              </Link>
             </div>
-          )}
-        </div>
+          </div>
+        </article>
+
+        {/* Only render comments after component is mounted */}
+        {mounted && (
+          <div id="comment" className="flex flex-col gap-8 border-gray-300">
+            <h2 className="text-3xl text-center font-bold">Add Comment</h2>
+            <Comment />
+          </div>
+        )}
+
+        {/* other recommendations */}
+        <Recommendations />
+
+        {/* subscribe to ewsletter */}
+        <Newsletter />
       </div>
     </main>
   );
