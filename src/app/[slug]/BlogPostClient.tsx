@@ -10,7 +10,7 @@ import { Heart, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { heart_filled, user_icon } from "@/assets/icons";
 import Recommendations from "@/components/recommendations";
-import Newsletter from "@/components/newletters";
+import Newsletter from "@/components/newsletters";
 
 interface BlogPostClientProps {
   post: Post;
