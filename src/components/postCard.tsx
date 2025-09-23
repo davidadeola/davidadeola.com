@@ -30,8 +30,8 @@ const renderPost = (
   switch (idx) {
     case 0:
       return (
-        <article className="relative flex gap-8 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
-          <div className="relative w-full h-[430px] overflow-hidden">
+        <article className="relative p-2 md:p-0  border dark:border-[#353535] md:border-none flex flex-col md:flex-row gap-8 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+          <div className="relative w-full h-48 md:h-[430px] overflow-hidden">
             {thumbnail ? (
               <Image
                 src={thumbnail}
@@ -43,7 +43,7 @@ const renderPost = (
             ) : (
               <div className="w-full h-full flex items-center justify-center">
                 <div className="text-center">
-                  <div className="w-8 h-8 mx-auto mb-2 bg-color-gray-3 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 mx-auto mb-2 rounded-lg flex items-center justify-center">
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -65,15 +65,15 @@ const renderPost = (
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+            <div className="text-[12px] uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
               {category}
             </div>
 
             <div className="flex flex-col gap-4">
-              <h3 className="text-2xl font-bold text-[#2A2A2A] dark:text-white">
+              <h3 className="text-xl md:text-2xl font-bold text-[#2A2A2A] dark:text-white">
                 {title}
               </h3>
-              <p className="text-base font-normal text-[#2A2A2A] dark:text-white">
+              <p className="text-sm md:text-base font-normal text-[#2A2A2A] dark:text-white">
                 {desc}
               </p>
 
@@ -93,8 +93,8 @@ const renderPost = (
       );
     case 1 || 2:
       return (
-        <article className="relative flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
-          <div className="relative w-full h-[320px] overflow-hidden">
+        <article className="relative p-2 md:p-0  border dark:border-[#353535] md:border-none flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+          <div className="relative w-full h-48 md:h-[320px] overflow-hidden">
             {thumbnail ? (
               <Image
                 src={thumbnail}
@@ -154,7 +154,7 @@ const renderPost = (
       );
     default:
       return (
-        <article className="relative flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+        <article className="relative p-2 md:p-0  border dark:border-[#353535] md:border-none flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
           <div className="relative w-full h-48 overflow-hidden">
             {thumbnail ? (
               <Image
@@ -229,7 +229,7 @@ const PostCard: React.FC<CardProps> = ({
     return renderPost({ thumbnail, alt, category, title, desc, date }, idx);
   } else {
     return (
-      <article className="relative flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+      <article className="relative border dark:border-[#353535] md:border-none p-2 md:p-0 flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
         <div className="relative w-full h-48 overflow-hidden">
           {thumbnail ? (
             <Image
@@ -263,7 +263,7 @@ const PostCard: React.FC<CardProps> = ({
           )}
         </div>
 
-        <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+        <div className="text-[12px] md:text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
           {category}
         </div>
 

@@ -30,23 +30,23 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
   return (
     <main className="min-h-screen">
-      <div className="mx-auto flex flex-col gap-30 pb-12">
+      <div className="mx-auto flex flex-col gap-12 nmd:gap-30 pb-12">
         <article className="animate-fade-in-up">
-          <header className="flex flex-col gap-6">
-            <div className="text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <header className="flex flex-col gap-4 md:gap-6">
+            <div className="text-[12px] md:text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1 md:py-1.5">
               {post.category}
             </div>
 
-            <h1 className="font-extrabold leading-tight text-3xl text-color-text-2 lg:text-4xl lg:leading-tight md:text-2xl md:leading-tight mb-4">
+            <h1 className="font-bold text-2xl md:text-3xl mb-4">
               {post.title}
             </h1>
 
             <div className="flex gap-3 items-center">
               <div className="rounded-full border-2 border-white h-[56px] w-[56px]">
-                {/* <Image src={""} alt="" fill className="object-cover" /> */}
+                {/* <Image src={""} alt="" fill className="object-cover" /> TODO: put the right image here... */}
               </div>
 
-              <div className="flex flex-col gap-2 justify-between">
+              <div className="flex flex-col gap-1 md:gap-2 justify-between">
                 <p className="text-base font-semibold text-[#2A2A2A]">
                   David Adeola
                 </p>
@@ -69,7 +69,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
           <div>
             {post.thumbnail && (
-              <div className="h-[675px] mt-10 relative w-full">
+              <div className="h-[195px] md:h-[675px] mt-10 relative w-full">
                 <Image
                   src={post.thumbnail}
                   alt="thumbnail"
@@ -82,7 +82,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
             <div className="flex justify-end my-4">
               <button
                 onClick={handleClickLikebtn}
-                className="text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-3.5"
+                className="text-sm md:text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
               >
                 {isLiked ? (
                   <Image
@@ -99,7 +99,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
               <Link
                 href={"#comment"}
-                className="text-base flex items-center gap-2 border-l-0 cursor-pointer hover:bg-[#974BFA] hover:text-white  transition-colors ease-in-out uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5"
+                className="text-sm md:text-base flex items-center gap-2 border-l-0 cursor-pointer hover:bg-[#974BFA] hover:text-white  transition-colors ease-in-out uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
               >
                 <MessageCircle size={20} strokeWidth={1.5} />
                 Comment
@@ -113,7 +113,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
               className="prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-800"
             />
 
-            <div className="absolute top-[280px] right-0 z-40">
+            <div className="absolute hidden md:block top-[280px] right-0 z-40">
               <Link
                 href="#subscribe"
                 className="inline-flex items-center gap-2 uppercase bg-[#974BFA] text-white px-4 py-3.5 shadow-2xl"
@@ -133,7 +133,9 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
         {/* Only render comments after component is mounted */}
         {mounted && (
           <div id="comment" className="flex flex-col gap-8 border-gray-300">
-            <h2 className="text-3xl text-center font-bold">Add Comment</h2>
+            <h2 className="text-2xl md:text-3xl text-center font-bold">
+              Add Comment
+            </h2>
             <Comment />
           </div>
         )}

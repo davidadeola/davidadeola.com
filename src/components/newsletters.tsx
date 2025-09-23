@@ -8,7 +8,7 @@ const Newsletter = () => {
 
   return (
     <div id="subscribe" className="flex flex-col gap-10">
-      <h2 className="text-3xl text-center font-bold">
+      <h2 className="text-2xl md:text-3xl text-center font-bold">
         Sign up for more like this.
       </h2>
 

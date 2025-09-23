@@ -2,13 +2,22 @@
 
 import { useSearchQuery } from "@/hooks/useSearchQuery";
 import { Search } from "lucide-react";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const SearchBar = () => {
   const { query, setQuery } = useSearchQuery();
+  const pathname = usePathname();
+  console.log(pathname, "path");
+
+  // Allowed routes
+  const allowedPaths = ["/", "/category", "/trending"];
+  const shouldRender = allowedPaths.includes(pathname);
+
+  if (!shouldRender) return null;
 
   return (
-    <div className="border dark:border-[#353535] h-[48px] px-3 w-[430px] flex items-center gap-3">
+    <div className="mt-8 border dark:border-[#353535] h-[48px] px-3 w-full max-w-[430px] flex items-center gap-3">
       <Search strokeWidth={2} size={20} className="h-[80%]" />
 
       <input

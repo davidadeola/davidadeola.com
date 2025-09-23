@@ -42,7 +42,7 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2.5 md:gap-4">
         <button className="cursor-pointer border md:border-none dark:border-[#353535] h-[32px] w-8 flex items-center justify-center dark:text-white">
           <Search size={20} strokeWidth={1.5} />
         </button>

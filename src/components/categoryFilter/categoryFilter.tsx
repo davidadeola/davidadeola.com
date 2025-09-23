@@ -22,8 +22,12 @@ const CategoryFilter: React.FC = () => {
   const categoryRef = useRef<HTMLUListElement>(null);
   const pathname = usePathname();
 
+  // Allowed routes
+  const allowedPaths = ["/", "/category", "/trending"];
+  const shouldRender = allowedPaths.includes(pathname);
+
   const { categories, loading } = useCategories();
-  // console.log(loading); // TODO: do something with this or about this dude...
+  // console.log(loading); // TODO: do something with this or about this...
 
   useScrollCenter({ ref: categoryRef, targetId: ACTIVE });
 
@@ -32,8 +36,13 @@ const CategoryFilter: React.FC = () => {
     [categories]
   );
 
+  if (!shouldRender) return null;
+
   return (
-    <nav aria-label="Category Filter" className="flex w-full h-[48px]">
+    <nav
+      aria-label="Category Filter"
+      className="flex mb-8 w-full h-[32px] md:h-[48px]"
+    >
       <ul className="flex items-center gap-3 list-none overflow-x-auto invisible-scrollbar">
         {/* All Articles and Trending Articles*/}
         <FilterCTA label="ALL ARTICLES" path="/" pathname={pathname} />
@@ -82,7 +91,7 @@ const FilterCTA = ({
   return (
     <Link
       href={path}
-      className={`cursor-pointer px-4 h-full flex items-center border dark:border-[#353535] text-base font-normal transition-colors duration-200 
+      className={`cursor-pointer text-nowrap px-4 h-full flex items-center border dark:border-[#353535] text-base font-normal transition-colors duration-200 
         ${
           isActive
             ? "bg-[#974BFA] text-white"
