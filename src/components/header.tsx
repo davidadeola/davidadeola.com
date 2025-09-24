@@ -19,13 +19,15 @@ const Header = () => {
 
           <nav className="md:flex gap-4 hidden">
             {NAV_LINKS.map(({ href, title }) => (
-              <Link
+              <a
                 key={title}
-                className="px-2 h-8 flex items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2 h-10 flex w-max items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
               >
                 {title}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
@@ -35,7 +37,7 @@ const Header = () => {
             <Search size={20} strokeWidth={1.5} />
           </button>
 
-          <Button className="text-base hidden md:flex font-bold text-white border border-[#974BFA] bg-[#974BFA]">
+          <Button className="text-base hidden md:flex font-bold text-white border hover:bg-[#974BFA]/50 border-[#974BFA] bg-[#974BFA]">
             Subscribe
           </Button>
 
@@ -58,13 +60,15 @@ const Header = () => {
           <div className="flex items-center justify-center z-20 w-full h-full">
             <nav className="flex flex-col items-center gap-4">
               {NAV_LINKS.map(({ href, title }) => (
-                <Link
+                <a
                   key={title}
-                  className="px-2 h-10 flex w-max items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 h-10 flex w-max items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
                 >
                   {title}
-                </Link>
+                </a>
               ))}
 
               <Link

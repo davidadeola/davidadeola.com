@@ -4,11 +4,11 @@ export const DARK = "dark";
 export const NAV_LINKS = [
   {
     title: "/WEBSITE",
-    href: "",
+    href: "https://www.davidadeola.com/",
   },
   {
     title: "/TWITTER",
-    href: "",
+    href: "https://x.com/davidadeola_",
   },
   {
     title: "/DISCORD",
