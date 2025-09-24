@@ -62,11 +62,11 @@ export default function CommentSection({ postId }: { postId: string }) {
   }
 
   return (
-    <section className="border-dashed border-2 w-full md:max-w-[70%] mx-auto px-4 md:px-8">
+    <section className="border-dashed border-[#353535]/30 dark:border-[#353535] border w-full md:max-w-[70%] mx-auto px-4 md:px-8">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="border-b w-full flex gap-4 flex-col py-10 mx-auto"
+          className="border-b border-[#353535]/10 w-full flex gap-4 flex-col py-10 mx-auto"
         >
           <FormField
             control={form.control}

@@ -33,7 +33,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
       <div className="mx-auto flex flex-col gap-12 nmd:gap-30 pb-12">
         <article className="animate-fade-in-up">
           <header className="flex flex-col gap-4 md:gap-6">
-            <div className="text-[12px] md:text-base uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1 md:py-1.5">
+            <div className="text-[12px] md:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1 md:py-1.5">
               {post.category}
             </div>
 
@@ -86,7 +86,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
             <div className="flex justify-end my-4">
               <button
                 onClick={toggleLike}
-                className="text-sm md:text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
+                className="text-sm md:text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
               >
                 {isLiked ? (
                   <Image
@@ -103,7 +103,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
               <Link
                 href={"#comment"}
-                className="text-sm md:text-base flex items-center gap-2 border-l-0 cursor-pointer hover:bg-[#974BFA] hover:text-white  transition-colors ease-in-out uppercase border border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
+                className="text-sm md:text-base flex items-center gap-2 border-l-0 cursor-pointer hover:bg-[#974BFA] hover:text-white  transition-colors ease-in-out uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
               >
                 <MessageCircle size={20} strokeWidth={1.5} />
                 Comment

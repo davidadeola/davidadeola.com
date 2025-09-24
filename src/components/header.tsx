@@ -24,7 +24,7 @@ const Header = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-2 h-10 flex w-max items-center bg-[#161616] text-white dark:bg-white dark:text-[#292929] text-base font-bold"
+                className="px-2 h-10 flex w-max items-center hover:bg-[#161616]/80 transition-colors ease-in-out bg-[#161616] text-white dark:bg-white hover:dark:bg-white/80 dark:text-[#292929] text-base font-bold"
               >
                 {title}
               </a>
@@ -37,13 +37,13 @@ const Header = () => {
             <Search size={20} strokeWidth={1.5} />
           </button>
 
-          <Button className="text-base hidden md:flex font-bold text-white border hover:bg-[#974BFA]/50 border-[#974BFA] bg-[#974BFA]">
+          <Button className="px-1.5 lg:px-2.5 hidden lg:flex text-xs cursor-pointer lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/80 hover:dark:bg-[#974BFA]/50">
             Subscribe
           </Button>
 
           <Button
             onClick={() => setShowNav(true)}
-            className="text-base md:hidden !px-2 h-[32px] flex items-center justify-center w-max font-bold text-white border border-[#974BFA] bg-[#974BFA]"
+            className="text-base md:hidden !px-2 h-[40px] flex items-center justify-center w-max font-bold text-white border border-[#974BFA] bg-[#974BFA]"
           >
             <Menu />
           </Button>

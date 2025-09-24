@@ -22,7 +22,7 @@ export default function ThemeToggleButton() {
   return (
     <button
       aria-label="Toggle Theme"
-      className={`cursor-pointer border dark:border-[#353535] h-[32px] w-8 flex items-center justify-center dark:text-white`}
+      className={`cursor-pointer border border-[#353535]/30 dark:border-[#353535] hover:bg-[#353535]/10 hover:dark:bg-[#353535] h-10 w-10 flex items-center justify-center dark:text-white`}
       onClick={toggleTheme}
     >
       {activeTheme === "light" ? (

@@ -21,7 +21,7 @@ const Newsletter = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <Button className="px-1.5 text-xs lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/50">
+        <Button className="px-1.5 lg:px-2.5 hidden lg:flex text-xs cursor-pointer lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/80 hover:dark:bg-[#974BFA]/50">
           Subscribe
         </Button>
       </div>

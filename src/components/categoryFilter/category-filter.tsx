@@ -90,7 +90,7 @@ const FilterCTA = ({
   return (
     <Link
       href={path}
-      className={`cursor-pointer text-nowrap px-4 h-full flex items-center border dark:border-[#353535] text-base font-normal transition-colors duration-200 
+      className={`cursor-pointer text-nowrap px-4 h-full flex items-center border border-[#353535]/30 dark:border-[#353535] text-base font-normal transition-colors duration-200 
         ${
           isActive
             ? "bg-[#974BFA] text-white"
