@@ -1,13 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Providers } from "@/lib/Providers";
 import SearchFilterPanel from "@/components/search-filter-panel";
 import { Toaster } from "sonner";
+import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const neueMontreal = localFont({
+  src: [
+    {
+      path: "./fonts/NeueMontreal-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/NeueMontreal-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/NeueMontreal-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: "David Adeola",
@@ -21,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${neueMontreal.className}`}>
         <Providers>
           <div className="bg-noise relative mx-auto min-h-screen flex flex-col w-full bg-white text-[#171717] transition dark:bg-[#171717] dark:text-white">
             <Header />
