@@ -6,6 +6,7 @@ import { Providers } from "@/lib/Providers";
 import SearchFilterPanel from "@/components/search-filter-panel";
 import { Toaster } from "sonner";
 import localFont from "next/font/local";
+import Newsletter from "@/components/newsletters";
 
 const neueMontreal = localFont({
   src: [
@@ -49,6 +50,10 @@ export default function RootLayout({
             <main className="mx-auto max-w-[1500px] pb-[40px] lg:pb-[80px] flex-1 w-full px-4 lg:px-[120px]">
               {children}
             </main>
+
+            <div className="mb-8">
+              <Newsletter />
+            </div>
 
             <Footer />
           </div>

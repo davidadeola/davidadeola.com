@@ -37,9 +37,12 @@ const Header = () => {
             <Search size={20} strokeWidth={1.5} />
           </button>
 
-          <Button className="px-1.5 lg:px-2.5 hidden lg:flex text-xs cursor-pointer lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/80 hover:dark:bg-[#974BFA]/50">
+          <Link
+            href={"#subscribe"}
+            className="px-1.5 lg:px-2.5 hidden lg:flex items-center text-xs cursor-pointer lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/80 hover:dark:bg-[#974BFA]/50"
+          >
             Subscribe
-          </Button>
+          </Link>
 
           <Button
             onClick={() => setShowNav(true)}
