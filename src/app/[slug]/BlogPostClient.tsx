@@ -42,9 +42,13 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
             </h1>
 
             <div className="flex gap-3 items-center">
-              <div className="rounded-full border-2 border-white h-[56px] w-[56px]">
-                {/* <Image src={""} alt="" fill className="object-cover" /> TODO: put the right image here... */}
-              </div>
+              <Image
+                src={"/images/Dave.jpg"}
+                alt=""
+                height={56}
+                width={56}
+                className="object-cover rounded-full border-2 dark:border-white/50 border-white h-[66px] w-[66px]"
+              />
 
               <div className="flex flex-col gap-1 md:gap-2 justify-between">
                 <p className="text-base font-semibold dark:text-white text-[#2A2A2A]">

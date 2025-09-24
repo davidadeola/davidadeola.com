@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { siteMetadata } from "Utils/siteMetadata";
 import type { UseThemeReturnType } from "Hooks/useTheme";
-import ThemeToggleButton from "Components/themeToggleButton";
+import ThemeToggleButton from "@/components/theme-toggle-button";
 import MenuIcon from "./menuIcon";
 import LinkList from "Components/navBar/linkList";
 
@@ -14,7 +14,7 @@ interface NavBarProps {
   theme: UseThemeReturnType["theme"];
 }
 
-const NavBar: React.FC<NavBarProps> = ({ title, theme, themeToggler }) => {
+const NavBar: React.FC<NavBarProps> = ({ title }) => {
   const { menuLinks } = siteMetadata;
   const navRef = useRef<HTMLElement>(null);
   const curtainRef = useRef<HTMLDivElement>(null);
@@ -72,7 +72,7 @@ const NavBar: React.FC<NavBarProps> = ({ title, theme, themeToggler }) => {
             >
               <LinkList links={menuLinks} setToggle={setToggle} />
               <li className="flex justify-center items-center py-2 md:ml-4 md:py-0">
-                <ThemeToggleButton theme={theme} themeToggler={themeToggler} />
+                <ThemeToggleButton />
               </li>
             </ul>
           </div>

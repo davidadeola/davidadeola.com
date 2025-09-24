@@ -4,7 +4,7 @@ import { Button } from "./button";
 import Logo from "./logo";
 import Link from "next/link";
 import { Menu, Search } from "lucide-react";
-import ThemeToggleButton from "./themeToggleButton";
+import ThemeToggleButton from "./theme-toggle-button";
 import { useState } from "react";
 import { NAV_LINKS } from "@/constants";
 

@@ -3,8 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import type Post from "Types/Post";
-import PostCard from "./postCard";
 import { usePathname } from "next/navigation";
+import PostCard from "./post-card";
 
 interface PostGridProps {
   posts: Post[];

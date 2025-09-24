@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import PostGrid from "./postGrid";
+import PostGrid from "./post-grid";
 import { usePosts } from "@/hooks/usePosts";
 
 const Recommendations = () => {

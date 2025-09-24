@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import PostGrid from "Components/postGrid";
+import PostGrid from "@/components/post-grid";
 import type Post from "Types/Post";
 import { useSearch } from "@/hooks/useSearch";
 import { useSearchQuery } from "@/hooks/useSearchQuery";

@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Providers } from "@/lib/Providers";
-import SearchFilterPanel from "@/components/SearchFilterPanel";
+import SearchFilterPanel from "@/components/search-filter-panel";
 import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
