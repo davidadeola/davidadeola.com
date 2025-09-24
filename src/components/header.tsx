@@ -12,7 +12,7 @@ const Header = () => {
   const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative max-w-[1500px] mx-auto w-full">
       <header className="flex h-[88px] items-center justify-between px-4 lg:px-[120px]">
         <div className="flex items-center lg:gap-20">
           <Logo />

@@ -12,7 +12,7 @@ const Newsletter = () => {
         Sign up for more like this.
       </h2>
 
-      <div className="border mx-auto dark:border-[#353535] h-[56px] px-2 w-full lg:max-w-[500px] flex items-center gap-3">
+      <div className="border border-[#353535]/30 mx-auto dark:border-[#353535] h-[56px] px-2 w-full lg:max-w-[500px] flex items-center gap-3">
         <input
           type="text"
           className="outline-0 flex-1 h-[80%] ml-3"
