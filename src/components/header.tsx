@@ -13,11 +13,11 @@ const Header = () => {
 
   return (
     <div className="relative">
-      <header className="flex h-[88px] items-center justify-between px-4 md:px-[120px]">
-        <div className="flex items-center md:gap-20">
+      <header className="flex h-[88px] items-center justify-between px-4 lg:px-[120px]">
+        <div className="flex items-center lg:gap-20">
           <Logo />
 
-          <nav className="md:flex gap-4 hidden">
+          <nav className="lg:flex gap-4 hidden">
             {NAV_LINKS.map(({ href, title }) => (
               <a
                 key={title}
@@ -32,8 +32,8 @@ const Header = () => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2.5 md:gap-4">
-          <button className="cursor-pointer border md:border-none dark:border-[#353535] h-[32px] w-8 flex items-center justify-center dark:text-white">
+        <div className="flex items-center gap-2.5 lg:gap-4">
+          <button className="cursor-pointer border border-[#353535]/30 lg:border-none dark:border-[#353535] h-10 w-10 flex items-center justify-center dark:text-white">
             <Search size={20} strokeWidth={1.5} />
           </button>
 
@@ -43,7 +43,7 @@ const Header = () => {
 
           <Button
             onClick={() => setShowNav(true)}
-            className="text-base md:hidden !px-2 h-[40px] flex items-center justify-center w-max font-bold text-white border border-[#974BFA] bg-[#974BFA]"
+            className="text-base lg:hidden h-10 w-10 flex items-center justify-center font-bold text-white border border-[#974BFA] bg-[#974BFA]"
           >
             <Menu />
           </Button>

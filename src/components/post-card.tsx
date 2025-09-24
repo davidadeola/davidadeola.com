@@ -65,15 +65,15 @@ const renderPost = (
           </div>
 
           <div className="flex flex-col gap-4">
-            <div className="text-[12px] md:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
+            <div className="text-[12px] lg:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
               {category}
             </div>
 
             <div className="flex flex-col gap-4">
-              <h3 className="text-xl md:text-2xl font-bold text-[#2A2A2A] dark:text-white">
+              <h3 className="text-xl lg:text-2xl font-bold text-[#2A2A2A] dark:text-white">
                 {title}
               </h3>
-              <p className="text-sm md:text-base font-normal text-[#2A2A2A] dark:text-white">
+              <p className="text-sm lg:text-base font-normal text-[#2A2A2A] dark:text-white">
                 {desc}
               </p>
 
@@ -94,7 +94,7 @@ const renderPost = (
     case 1 || 2:
       return (
         <article className="relative p-2 hover:border-[#353535]/30  border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
-          <div className="relative w-full h-48 md:h-[320px] overflow-hidden">
+          <div className="relative w-full h-48 lg:h-[320px] overflow-hidden">
             {thumbnail ? (
               <Image
                 src={thumbnail}
@@ -127,7 +127,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="text-[12px] md:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <div className="text-[12px] lg:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
             {category}
           </div>
 
@@ -188,7 +188,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="text-[12px] md:text-base  uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <div className="text-[12px] lg:text-base  uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
             {category}
           </div>
 
@@ -263,7 +263,7 @@ const PostCard: React.FC<CardProps> = ({
           )}
         </div>
 
-        <div className="text-[12px] md:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+        <div className="text-[12px] lg:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
           {category}
         </div>
 

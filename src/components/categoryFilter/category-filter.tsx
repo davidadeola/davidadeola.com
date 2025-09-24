@@ -40,7 +40,7 @@ const CategoryFilter: React.FC = () => {
   return (
     <nav
       aria-label="Category Filter"
-      className="flex mb-8 md:mb-0 w-full h-[32px] md:h-[48px]"
+      className="flex mb-8 lg:mb-0 w-full h-[32px] lg:h-[48px]"
     >
       <ul className="flex items-center gap-3 list-none overflow-x-auto invisible-scrollbar">
         {/* All Articles and Trending Articles*/}

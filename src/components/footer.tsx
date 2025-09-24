@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer
       role="contentinfo"
-      className={`flex flex-col md:flex-row py-8 md:py-0 gap-5 md:gap-0 left-0 bottom-0 w-full text-center px-4 md:px-[120px] text-sm text-white/70 font-normal md:justify-between items-center h-full md:h-[95px] bg-[#292929] dark:bg-transparent ${theme === "light" ? "bg-noise" : ""}`}
+      className={`flex flex-col lg:flex-row py-8 lg:py-0 gap-5 lg:gap-0 left-0 bottom-0 w-full text-center px-4 lg:px-[120px] text-sm text-white/70 font-normal lg:justify-between items-center h-full lg:h-[95px] bg-[#292929] dark:bg-transparent ${theme === "light" ? "bg-noise" : ""}`}
     >
       <p aria-label="Copyright" className="text-sm">
         <span className="text-white font-bold">{author}</span> © {copyrightYr}
