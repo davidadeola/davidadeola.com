@@ -47,7 +47,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
               </div>
 
               <div className="flex flex-col gap-1 md:gap-2 justify-between">
-                <p className="text-base font-semibold text-[#2A2A2A]">
+                <p className="text-base font-semibold dark:text-white text-[#2A2A2A]">
                   David Adeola
                 </p>
 
@@ -132,7 +132,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
         {/* Only render comments after component is mounted */}
         {mounted && (
-          <div id="comment" className="flex flex-col gap-8 border-gray-300">
+          <div id="comment" className="flex flex-col gap-8">
             <h2 className="text-2xl md:text-3xl text-center font-bold">
               Add Comment
             </h2>

@@ -62,7 +62,7 @@ export default function CommentSection({ postId }: { postId: string }) {
   }
 
   return (
-    <section className="border-dashed border-2 w-full max-w-[70%] mx-auto px-8">
+    <section className="border-dashed border-2 w-full md:max-w-[70%] mx-auto px-4 md:px-8">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -72,7 +72,7 @@ export default function CommentSection({ postId }: { postId: string }) {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem className="mx-auto w-full max-w-3/5">
+              <FormItem className="mx-auto w-full md:max-w-3/5">
                 <FormLabel>Name</FormLabel>
                 <FormControl>
                   <Input placeholder="" {...field} />
@@ -86,7 +86,7 @@ export default function CommentSection({ postId }: { postId: string }) {
             control={form.control}
             name="comment"
             render={({ field }) => (
-              <FormItem className="mx-auto w-full max-w-3/5">
+              <FormItem className="mx-auto w-full md:max-w-3/5">
                 <FormLabel>Comment</FormLabel>
                 <FormControl>
                   <Textarea placeholder="" {...field} />
@@ -105,7 +105,7 @@ export default function CommentSection({ postId }: { postId: string }) {
         </form>
       </Form>
 
-      <div className="w-3/5 py-10 mx-auto">
+      <div className="w-full md:w-3/5 py-10 mx-auto">
         {loading ? (
           <div className="flex items-center justify-center">
             <p className="text-xl font-semibold">Loading comments…</p>
