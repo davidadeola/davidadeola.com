@@ -5,6 +5,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Providers } from "@/lib/Providers";
 import SearchFilterPanel from "@/components/SearchFilterPanel";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,8 @@ export default function RootLayout({
 
             <Footer />
           </div>
+
+          <Toaster />
         </Providers>
       </body>
     </html>

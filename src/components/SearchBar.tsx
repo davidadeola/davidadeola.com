@@ -8,7 +8,6 @@ import React from "react";
 const SearchBar = () => {
   const { query, setQuery } = useSearchQuery();
   const pathname = usePathname();
-  console.log(pathname, "path");
 
   // Allowed routes
   const shouldRender = pathname === "/" || pathname.startsWith("/category");

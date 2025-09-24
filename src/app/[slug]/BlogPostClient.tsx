@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState, useEffect } from "react";
 import type Post from "Types/Post";
-import Comment from "Components/comment";
 import Mdx from "@/lib/mdx";
 import { format } from "date-fns";
 import Image from "next/image";
@@ -11,22 +11,22 @@ import Link from "next/link";
 import { heart_filled, user_icon } from "@/assets/icons";
 import Recommendations from "@/components/recommendations";
 import Newsletter from "@/components/newsletters";
-
+import CommentSection from "@/components/comment-section";
+import { useLikes } from "@/hooks/useLikes";
 interface BlogPostClientProps {
   post: Post;
 }
 
 const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
   const [mounted, setMounted] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+
+  const { likes, isLiked, toggleLike } = useLikes(post.id);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const handleClickLikebtn = (): void => {
-    setIsLiked(!isLiked);
-  };
+  console.log(post, "post");
 
   return (
     <main className="min-h-screen">
@@ -81,7 +81,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
             <div className="flex justify-end my-4">
               <button
-                onClick={handleClickLikebtn}
+                onClick={toggleLike}
                 className="text-sm md:text-base flex items-center gap-2 uppercase border cursor-pointer hover:bg-[#974BFA] hover:text-white transition-colors ease-in-out border-[#E1E1E1] dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5 md:py-3.5"
               >
                 {isLiked ? (
@@ -94,7 +94,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
                 ) : (
                   <Heart size={20} strokeWidth={1.5} />
                 )}
-                {100} likes
+                {likes} likes
               </button>
 
               <Link
@@ -136,7 +136,8 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
             <h2 className="text-2xl md:text-3xl text-center font-bold">
               Add Comment
             </h2>
-            <Comment />
+
+            <CommentSection postId={post.id} />
           </div>
         )}
 
