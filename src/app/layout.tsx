@@ -45,7 +45,9 @@ export default function RootLayout({
           <div className="bg-noise relative mx-auto min-h-screen flex flex-col w-full bg-white text-[#171717] transition dark:bg-[#171717] dark:text-white">
             <Header />
 
-            <SearchFilterPanel />
+            <div className="mt-[88px]">
+              <SearchFilterPanel />
+            </div>
 
             <main className="mx-auto max-w-[1500px] pb-[40px] lg:pb-[80px] flex-1 w-full px-4 lg:px-[120px]">
               {children}

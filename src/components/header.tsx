@@ -5,15 +5,32 @@ import Logo from "./logo";
 import Link from "next/link";
 import { Menu, Search } from "lucide-react";
 import ThemeToggleButton from "./theme-toggle-button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/constants";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className="relative max-w-[1500px] mx-auto w-full">
-      <header className="flex h-[88px] items-center justify-between px-4 lg:px-[120px]">
+    <div className="fixed z-50 max-w-[1500px] mx-auto w-full">
+      <header
+        className={`flex h-[88px] items-center justify-between px-4 lg:px-[120px]
+          ${
+            scrolled
+              ? "backdrop-blur-md bg-white/80 dark:bg-[#161616]/80 shadow-md"
+              : "bg-transparent"
+          }`}
+      >
         <div className="flex items-center lg:gap-20">
           <Logo />
 
