@@ -12,7 +12,7 @@ const Newsletter = () => {
         Sign up for more like this.
       </h2>
 
-      <div className="border mx-auto dark:border-[#353535] h-[56px] px-2 w-full max-w-[500px] flex items-center gap-3">
+      <div className="border mx-auto dark:border-[#353535] h-[56px] px-2 w-full md:max-w-[500px] flex items-center gap-3">
         <input
           type="text"
           className="outline-0 flex-1 h-[80%] ml-3"
@@ -21,7 +21,7 @@ const Newsletter = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <Button className="text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/50">
+        <Button className="px-1.5 text-xs lg:text-base font-bold h-[40px] text-white border border-[#974BFA] bg-[#974BFA] hover:bg-[#974BFA]/50">
           Subscribe
         </Button>
       </div>

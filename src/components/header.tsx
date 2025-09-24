@@ -6,25 +6,7 @@ import Link from "next/link";
 import { Menu, Search } from "lucide-react";
 import ThemeToggleButton from "./themeToggleButton";
 import { useState } from "react";
-
-const NAV_LINKS = [
-  {
-    title: "/WEBSITE",
-    href: "",
-  },
-  {
-    title: "/TWITTER",
-    href: "",
-  },
-  {
-    title: "/DISCORD",
-    href: "",
-  },
-  {
-    title: "/TELEGRAM",
-    href: "",
-  },
-];
+import { NAV_LINKS } from "@/constants";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);

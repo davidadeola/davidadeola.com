@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 // import ThemeContext from "Stores/themeContext";
 import { siteMetadata } from "Utils/siteMetadata";
-import { DARK } from "Constants/theme";
+import { DARK } from "@/constants";
 
 const src = "https://utteranc.es";
 // const LIGHT_THEME = "github-light";
