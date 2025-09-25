@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -283,16 +284,39 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             </td>
           ),
 
-          img: ({ src, alt }) => (
-            <Image
-              src={src || ""}
-              alt={alt || ""}
-              width={800}
-              height={400}
-              className="w-full h-auto rounded-lg shadow-lg object-cover my-8 max-w-full"
-              loading="lazy"
-            />
-          ),
+          img: ({ src, alt }: { src?: string | Blob; alt?: string }) => {
+            if (!src) return null;
+
+            if (typeof src === "string") {
+              // ✅ Use Next.js <Image /> for regular string paths/URLs
+              return (
+                <Image
+                  src={src}
+                  alt={alt || ""}
+                  width={800}
+                  height={400}
+                  className="w-full h-auto rounded-lg shadow-lg object-cover my-8 max-w-full"
+                  loading="lazy"
+                />
+              );
+            }
+
+            if (src instanceof Blob) {
+              // Convert Blob into a temporary object URL for <img>
+              const blobUrl = URL.createObjectURL(src);
+              return (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={blobUrl}
+                  alt={alt || ""}
+                  className="w-full h-auto rounded-lg shadow-lg object-cover my-8 max-w-full"
+                  loading="lazy"
+                />
+              );
+            }
+
+            return null;
+          },
 
           hr: () => (
             <hr className="border-gray-300 dark:border-gray-600 my-12" />
