@@ -1,18 +1,18 @@
 "use client";
-import React, { useRef, useContext, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-import ThemeContext from "Stores/themeContext";
+// import ThemeContext from "Stores/themeContext";
 import { siteMetadata } from "Utils/siteMetadata";
-import { DARK } from "Constants/theme";
+import { DARK } from "@/constants";
 
 const src = "https://utteranc.es";
-const LIGHT_THEME = "github-light";
-const DARK_THEME = "dark-blue";
+// const LIGHT_THEME = "github-light";
+// const DARK_THEME = "dark-blue";
 
 const Comment = () => {
   const { utterances } = siteMetadata;
   const { repo } = utterances ?? { repo: undefined };
-  const theme = useContext(ThemeContext);
+  // const theme = useContext(ThemeContext);
   const containerRef = useRef<HTMLDivElement>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -30,7 +30,7 @@ const Comment = () => {
       return;
     }
 
-    const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
+    // const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
 
     const comment = document.createElement("script");
     const attributes = {
@@ -38,7 +38,7 @@ const Comment = () => {
       repo,
       "issue-term": "pathname",
       label: "comment",
-      theme: themeMode,
+      // theme: themeMode,
       crossOrigin: "anonymous",
       async: "true",
     };
@@ -52,30 +52,29 @@ const Comment = () => {
     };
 
     containerRef.current.appendChild(comment);
-  }, [mounted, repo, theme]); // Depend on mounted, repo, and theme
+  }, [mounted, repo]); // Depend on mounted, repo, and theme
 
   // 3. Handle theme changes
   useEffect(() => {
     if (!mounted || !repo || !containerRef.current) return;
 
-    const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
+    // const themeMode = theme === DARK ? DARK_THEME : LIGHT_THEME;
     const utterancesEl = containerRef.current.querySelector(
       "iframe.utterances-frame"
     ) as HTMLIFrameElement;
 
     if (utterancesEl?.contentWindow) {
-      const message = {
-        type: "set-theme",
-        theme: themeMode,
-      };
-
-      try {
-        utterancesEl.contentWindow.postMessage(message, src);
-      } catch (error) {
-        console.debug("Theme message failed:", error);
-      }
+      // const message = {
+      //   type: "set-theme",
+      //   theme: themeMode,
+      // };
+      // try {
+      //   utterancesEl.contentWindow.postMessage(message, src);
+      // } catch (error) {
+      //   console.debug("Theme message failed:", error);
+      // }
     }
-  }, [mounted, repo, theme]); // Depend on theme to run this effect
+  }, [mounted, repo]); // Depend on theme to run this effect
 
   if (!mounted || !repo) {
     return null;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { LIGHT, DARK } from "Constants/theme";
+import { LIGHT, DARK } from "@/constants";
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>(null);

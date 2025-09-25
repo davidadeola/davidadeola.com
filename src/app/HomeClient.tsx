@@ -1,30 +1,39 @@
 "use client";
 
 import React from "react";
-import PostGrid from "Components/postGrid";
-import CategoryFilter from "Components/categoryFilter";
+import PostGrid from "@/components/post-grid";
 import type Post from "Types/Post";
+import { useSearch } from "@/hooks/useSearch";
+import { useSearchQuery } from "@/hooks/useSearchQuery";
+import SearchPostGrid from "@/components/search-post-grid";
 
 interface HomeClientProps {
   posts: Post[];
-  categories: { name: string; count: number }[];
-  postTitle: string;
 }
 
-const HomeClient: React.FC<HomeClientProps> = ({
-  posts,
-  categories,
-  postTitle,
-}) => {
+const HomeClient: React.FC<HomeClientProps> = ({ posts }) => {
+  const { query } = useSearchQuery();
+  const { results, loading } = useSearch(query);
+
+  const noSearchResult = Boolean(query && !results.length);
+  const isSearchResult = Boolean(query && results.length);
+
   return (
-    <main className="min-w-min-width min-h-[calc(100vh-var(--nav-height)-var(--footer-height))] bg-color-background">
-      <div className="box-content w-[87.5%] max-w-width pt-sizing-lg pb-sizing-lg mx-auto md:pt-grid-gap-lg">
-        <CategoryFilter categoryList={categories} />
-        <h2 className="text-text-xl font-font-weight-extra-bold mb-sizing-md leading-tight text-color-text md:text-text-lg">
-          {postTitle}
-        </h2>
-        <PostGrid posts={posts} />
-      </div>
+    <main className="">
+      {isSearchResult && <SearchPostGrid posts={results} />}
+      {!query && <PostGrid posts={posts} />}
+      {noSearchResult && !loading && (
+        <div className="border border-dashed border-[#353535]/30 gap-4 dark:border-[#353535] h-[400px] flex flex-col items-center justify-center">
+          <h3 className="text-2xl">Oops!</h3>
+          <p>Result not found</p>
+        </div>
+      )}
+
+      {loading && (
+        <div className="border border-dashed border-[#353535]/30 gap-4 dark:border-[#353535] h-[400px] flex flex-col items-center justify-center">
+          <h3 className="text-2xl">Loading...</h3>
+        </div>
+      )}
     </main>
   );
 };
