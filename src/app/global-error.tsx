@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Error({
@@ -12,8 +11,6 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const router = useRouter();
-
   useEffect(() => {
     console.error(error);
   }, [error]);
