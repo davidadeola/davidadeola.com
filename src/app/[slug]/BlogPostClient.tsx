@@ -10,7 +10,6 @@ import { Heart, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { heart_filled, user_icon } from "@/assets/icons";
 import Recommendations from "@/components/recommendations";
-import Newsletter from "@/components/newsletters";
 import CommentSection from "@/components/comment-section";
 import { useLikes } from "@/hooks/useLikes";
 interface BlogPostClientProps {
@@ -147,9 +146,6 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
         {/* other recommendations */}
         <Recommendations />
-
-        {/* subscribe to ewsletter */}
-        <Newsletter />
       </div>
     </main>
   );

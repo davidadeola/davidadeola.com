@@ -175,6 +175,12 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
             </p>
           ),
 
+          i: ({ children }) => (
+            <i className="text-gray-600 dark:text-gray-400 mb-2 italic">
+              {children}
+            </i>
+          ),
+
           ul: ({ children }) => (
             <ul className="list-disc list-outside my-4 space-y-2 ml-6 text-gray-600 dark:text-gray-400 mb-4">
               {children}
