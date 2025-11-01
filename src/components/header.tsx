@@ -22,7 +22,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="fixed z-50 max-w-[1500px] mx-auto w-full">
+    <div className="fixed z-50 mx-auto w-full">
       <header
         className={`flex h-[88px] items-center justify-between px-4 lg:px-[120px]
           ${

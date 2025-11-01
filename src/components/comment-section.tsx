@@ -22,10 +22,10 @@ import { formatDistance } from "date-fns";
 
 const FormSchema = z.object({
   name: z.string().min(6, {
-    message: "Username must be at least 2 characters.",
+    message: "Username must be at least 6 characters.",
   }),
-  comment: z.string().min(20, {
-    message: "Username must be at least 2 characters.",
+  comment: z.string().min(2, {
+    message: "comment must be at least 2 characters.",
   }),
 });
 
@@ -100,7 +100,7 @@ export default function CommentSection({ postId }: { postId: string }) {
             className="cursor-pointer w-3/5 mx-auto"
             type="submit"
           >
-            Submit
+            {submitting ? "Submitting..." : "Submit"}
           </Button>
         </form>
       </Form>

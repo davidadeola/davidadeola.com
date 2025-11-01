@@ -339,6 +339,12 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
               {children}
             </em>
           ),
+
+          u: ({ children }) => (
+            <u className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline">
+              {children}
+            </u>
+          ),
         }}
       >
         {processedContent}

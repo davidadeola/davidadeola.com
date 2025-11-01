@@ -72,7 +72,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
 
           <div>
             {post.thumbnail && (
-              <div className="h-[195px] lg:h-[675px] mt-10 relative w-full">
+              <div className="h-[195px] lg:h-[700px] mt-10 relative w-full">
                 <Image
                   src={post.thumbnail}
                   alt="thumbnail"
