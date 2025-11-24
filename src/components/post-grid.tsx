@@ -68,9 +68,9 @@ const PostGrid: React.FC<PostGridProps> = ({ posts }) => {
               data;
             const ariaLabel = `${title} - ${category} - Posted on ${date}`;
 
-            let colSpan = "col-span-2";
-            if (idx === 0) colSpan = "md:col-span-6";
-            if (idx === 1 || idx === 2) colSpan = "md:col-span-3";
+            let colSpan = "col-span-1 md:col-span-2";
+            if (idx === 0) colSpan = "col-span-1 md:col-span-6";
+            if (idx === 1 || idx === 2) colSpan = "col-span-1 md:col-span-3";
 
             return (
               <li key={id} role="listitem" className={`${colSpan}`}>

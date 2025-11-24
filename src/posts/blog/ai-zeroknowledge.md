@@ -2,7 +2,7 @@
 title: "AI & ZK Tech"
 category: "Web3"
 date: "2025-09-25 04:15:00"
-desc:  Unlocking Next-Gen Privacy, Efficiency, and Security for the Digital Age"
+desc:  "Unlocking Next-Gen Privacy, Efficiency, and Security for the Digital Age"
 thumbnail: "/images/zeroknowledge/thumbnail.jpeg"
 alt: "AI & ZK Tech"
 ---

@@ -49,7 +49,7 @@ export default function RootLayout({
               <SearchFilterPanel />
             </div>
 
-            <main className="mx-auto max-w-[1500px] pb-[40px] lg:pb-[80px] flex-1 w-full px-4 lg:px-[120px]">
+            <main className="mx-auto max-w-[1500px] pb-[40px] lg:pb-[80px] flex-1 w-full px-4 lg:px-[120px] overflow-x-hidden">
               {children}
             </main>
 

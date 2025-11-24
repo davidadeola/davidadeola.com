@@ -30,8 +30,8 @@ const renderPost = (
   switch (idx) {
     case 0:
       return (
-        <article className="relative p-2 hover:border-[#353535]/30  border hover:dark:border-[#353535] lg:border-transparent flex flex-col lg:flex-row gap-8 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
-          <div className="relative w-full h-48 lg:h-[430px] overflow-hidden">
+        <article className="relative p-2 hover:border-[#353535]/30 border hover:dark:border-[#353535] lg:border-transparent flex flex-col lg:flex-row gap-8 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+          <div className="relative w-full lg:w-1/2 h-48 lg:h-[430px] overflow-hidden flex-shrink-0">
             {thumbnail ? (
               <Image
                 src={thumbnail}
@@ -64,7 +64,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:w-1/2">
             <div className="text-[12px] lg:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1">
               {category}
             </div>
@@ -84,16 +84,17 @@ const renderPost = (
                 >
                   {format(new Date(date), "MMM dd, yyyy")}
                 </time>
-                <span className="bg-[#979797] rounded-full w-1 h-1"></span>{" "}
+                <span className="bg-[#979797] rounded-full w-1 h-1"></span>
                 <p className="text-sm text-[#979797] font-normal">4 min read</p>
               </div>
             </div>
           </div>
         </article>
       );
-    case 1 || 2:
+    case 1:
+    case 2:
       return (
-        <article className="relative p-2 hover:border-[#353535]/30  border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+        <article className="relative p-2 hover:border-[#353535]/30 border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
           <div className="relative w-full h-48 lg:h-[320px] overflow-hidden">
             {thumbnail ? (
               <Image
@@ -146,7 +147,7 @@ const renderPost = (
               >
                 {format(new Date(date), "MMM dd, yyyy")}
               </time>
-              <span className="bg-[#979797] rounded-full w-1 h-1"></span>{" "}
+              <span className="bg-[#979797] rounded-full w-1 h-1"></span>
               <p className="text-sm text-[#979797] font-normal">4 min read</p>
             </div>
           </div>
@@ -154,7 +155,7 @@ const renderPost = (
       );
     default:
       return (
-        <article className="relative p-2 hover:border-[#353535]/30  border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+        <article className="relative p-2 hover:border-[#353535]/30 border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
           <div className="relative w-full h-48 overflow-hidden">
             {thumbnail ? (
               <Image
@@ -188,7 +189,7 @@ const renderPost = (
             )}
           </div>
 
-          <div className="text-[12px] lg:text-base  uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
+          <div className="text-[12px] lg:text-base uppercase border border-[#353535]/30 dark:border-[#353535] text-[#3D3D3D] dark:text-white w-max px-4 py-1.5">
             {category}
           </div>
 
@@ -207,7 +208,7 @@ const renderPost = (
               >
                 {format(new Date(date), "MMM dd, yyyy")}
               </time>
-              <span className="bg-[#979797] rounded-full w-1 h-1"></span>{" "}
+              <span className="bg-[#979797] rounded-full w-1 h-1"></span>
               <p className="text-sm text-[#979797] font-normal">4 min read</p>
             </div>
           </div>
@@ -229,7 +230,7 @@ const PostCard: React.FC<CardProps> = ({
     return renderPost({ thumbnail, alt, category, title, desc, date }, idx);
   } else {
     return (
-      <article className="relative p-2 hover:border-[#353535]/30  border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
+      <article className="relative p-2 hover:border-[#353535]/30 border hover:dark:border-[#353535] lg:border-transparent flex flex-col gap-5 overflow-hidden h-full rounded-border-radius-base bg-color-card transform translate-z-0">
         <div className="relative w-full h-48 overflow-hidden">
           {thumbnail ? (
             <Image
@@ -282,7 +283,7 @@ const PostCard: React.FC<CardProps> = ({
             >
               {format(new Date(date), "MMM dd, yyyy")}
             </time>
-            <span className="bg-[#979797] rounded-full w-1 h-1"></span>{" "}
+            <span className="bg-[#979797] rounded-full w-1 h-1"></span>
             <p className="text-sm text-[#979797] font-normal">4 min read</p>
           </div>
         </div>
