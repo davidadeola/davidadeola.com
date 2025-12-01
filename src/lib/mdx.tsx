@@ -170,7 +170,7 @@ const Mdx: React.FC<MdxProps> = ({ content, className = "" }) => {
           ),
 
           p: ({ children }) => (
-            <p className="leading-relaxed text-base mb-6 text-gray-700 dark:text-gray-300 break-words font-light">
+            <p className="leading-relaxed text-base mb-6 text-gray-700 dark:text-gray-300 break-words font-light text-justify">
               {children}
             </p>
           ),
