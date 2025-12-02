@@ -156,5 +156,6 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: "Times New Roman", Times, serif;
   }
 }

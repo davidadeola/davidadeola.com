@@ -116,7 +116,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
               className="prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-a:text-blue-600 hover:prose-a:text-blue-800"
             />
 
-            <div className="absolute hidden lg:block top-[280px] right-0 z-40">
+            {/* <div className="absolute hidden lg:block top-[280px] right-0 z-40">
               <Link
                 href="#subscribe"
                 className="inline-flex items-center gap-2 uppercase bg-[#974BFA] text-white px-4 py-3.5 shadow-2xl"
@@ -129,7 +129,7 @@ const BlogPostClient: React.FC<BlogPostClientProps> = ({ post }) => {
                 />
                 Subscribe
               </Link>
-            </div>
+            </div> */}
           </div>
         </article>
 
