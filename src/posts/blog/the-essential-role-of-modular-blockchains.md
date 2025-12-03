@@ -56,7 +56,7 @@ Modular blockchains represent a fundamental rethinking of network architecture. 
 Modularity is the principle of separating a system into distinct components, or modules, that can be developed, upgraded, and replaced independently. In the context of blockchains, this means decoupling the four primary functions: execution, data availability, consensus, and settlement. By isolating these tasks, each layer can be engineered for maximum performance without being constrained by the limitations of the others. This creates a synergistic system where the whole is far greater than the sum of its parts.
 
 ### The Four Pillars of a Modular Blockchain Architecture
-![hh](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764691899/WhatsApp_Image_2025-12-02_at_07.42.25_2_un8cxs.jpg)
+![hh](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764707399/7_ck7fk5.png)
 
 A complete modular stack is typically composed of four distinct but interconnected layers.
 
@@ -98,7 +98,7 @@ A well-designed modular stack promotes seamless communication between different 
 
 ## Key Technologies and Ecosystems Driving Modular Blockchain Innovation
 
-![Key Technologies](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764691891/WhatsApp_Image_2025-12-02_at_07.42.25_3_k3ms3f.jpg)
+![Key Technologies](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764707583/8_wfmkwl.png)
 
 The shift toward modularity is not just a theoretical concept; it's being actively built by a vibrant ecosystem of projects and technologies. These pioneers are creating the essential components from data availability layers to rollup frameworks that are making the modular vision a reality for developers worldwide.
 
@@ -124,7 +124,7 @@ Beyond the core layers, a rich ecosystem of infrastructure and tooling is develo
 
 ## Real-World Impact: Modular Blockchains Enabling Specific Complex DApp Categories
 
-![Complex DApp Categories](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764691743/WhatsApp_Image_2025-12-02_at_07.42.25_y51nis.jpg)
+![Complex DApp Categories](https://res.cloudinary.com/dg6oby8n9/image/upload/v1764707354/9_q5axb9.png)
 
 The true test of any new technology is its ability to enable applications that were previously impractical or impossible. Modular blockchains are already proving their worth by providing the foundation for complex DApp categories that have long struggled on monolithic chains.
 
